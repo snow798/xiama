@@ -1,0 +1,436 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+body {
+  -webkit-touch-callout: none;
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;
+  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color: #E4E4E4;
+  background-image: linear-gradient(top, #a7a7a7 0%, #e4e4e4 51%);
+  background-image: -webkit-linear-gradient(top, #a7a7a7 0%, #e4e4e4 51%);
+  background-image: -ms-linear-gradient(top, #a7a7a7 0%, #e4e4e4 51%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a7a7a7), color-stop(0.51, #e4e4e4));
+  background-attachment: fixed;
+  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+h1 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0px;
+  overflow: visible;
+  padding: 0px;
+  text-align: center;
+}
+.event {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin: 0px 30px;
+  padding: 2px 0px;
+}
+.event.listening {
+  background-color: #333333;
+  display: block;
+}
+.event.received {
+  background-color: #4B946A;
+  display: none;
+}
+@keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+.blink {
+  animation: fade 3000ms infinite;
+  -webkit-animation: fade 3000ms infinite;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+html {
+  font-size: 50px;
+}
+body {
+  background: #FFFFFF;
+  font-size: 12px;
+  -webkit-overflow-scroll: touch;
+}
+.main {
+  height: 100%;
+}
+.menu {
+  display: none;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+.container .player {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 100;
+  transition: all 100ms;
+  flex-direction: column;
+  /*-webkit-backface-visibility: hidden;*/
+  /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+  /*
+    -webkit-transform-style: preserve-3d; */
+  /*（设置内嵌的元素在 3D 空间如何呈现：保留 3D ）*/
+  /*进度控制*/
+  /*音乐信息*/
+}
+.container .player .playerContent {
+  width: 100%;
+  height: 100%;
+  background-color: #f50;
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  z-index: 105;
+  transition: all 220ms;
+}
+.container .player .playerContent .player-header {
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 106;
+  visibility: hidden;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 91%, from(#40403f), to(transparent));
+  transition: opacity 200ms;
+  transform: translate3d(0, 0, 0);
+}
+.container .player .playerContent .player-header .player-back {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  text-align: left;
+}
+.container .player .playerContent .player-header .player-back .icon-playerHrader-back {
+  width: 0.4rem;
+  height: 0.4rem;
+  vertical-align: middle;
+  margin-left: 20%;
+}
+.container .player .playerContent .player-header .player-Page-tag {
+  flex: 3;
+}
+.container .player .playerContent .player-header .player-similar {
+  flex: 1;
+}
+.container .player .playerContent ul {
+  width: 22.5rem;
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  list-style: none;
+  transform: translate3d(-7.5rem, 0, 0);
+}
+.container .player .playerContent ul li {
+  width: 7.5rem;
+  height: 1000px;
+  float: left;
+}
+.container .player .playerContent .myList {
+  background-color: indianred;
+}
+.container .player .playerContent .album {
+  background-color: aquamarine;
+}
+.container .player .playerContent .lyrics {
+  width: 7.5rem;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+.container .player .playerContent .lyrics .max_cover {
+  width: 7.5rem;
+  flex: auto;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+.container .player .playerContent .lyrics .music_subjoin {
+  width: 7.5rem;
+  position: relative;
+  background-color: transparent;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-progress {
+  position: absolute;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip {
+  width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-love {
+  flex: 1;
+  height: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-love .icon-maxPlayer-love {
+  width: 0.8rem;
+  height: 0.8rem;
+  vertical-align: middle;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-title {
+  flex: 3;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4rem;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-title .titleText {
+  height: 0.8rem;
+  line-height: 1.2rem;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-title .author {
+  height: 0.7rem;
+  line-height: 0.7rem;
+  font-size: 0.24rem;
+  color: #d4d4d3;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-remark {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-remark span {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  top: 0.41rem;
+  right: 0.3rem;
+  background-color: transparent;
+  color: #fff;
+  text-align: right;
+}
+.container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-remark .icon-maxPlayer-comment {
+  width: 0.42rem;
+  height: 0.42rem;
+  vertical-align: middle;
+}
+.container .player .playerContent .lyrics .lyrics_text {
+  width: 7.5rem;
+  color: #fff;
+  font-size: 0.30rem;
+  text-align: center;
+}
+.container .player .playerControl {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: all 80ms ease-out;
+  z-index: 110;
+}
+.container .player .minControl .progress {
+  width: 100%;
+  height: 0.04rem;
+  background-color: #eee;
+  opacity: 0.8;
+}
+.container .player .minControl .progress .progress_handle {
+  width: 100%;
+  height: 0.04rem;
+  background-color: #4B946A;
+  transform: translate3d(-40%, 0, 0);
+}
+.container .player .minControl .musicInfo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+}
+.container .player .minControl .musicInfo .cover {
+  width: 1.1rem;
+  height: 1.1rem;
+  float: left;
+  background-color: #71e414;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+.container .player .minControl .musicInfo .name {
+  width: 2.6rem;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  position: absolute;
+  font-size: 0.32rem;
+  overflow: hidden;
+  top: 0;
+  left: 1.5rem;
+}
+.container .player .minControl .musicInfo .author {
+  width: 1.6rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  position: absolute;
+  opacity: 0.7;
+  top: 0.65rem;
+  left: 1.5rem;
+}
+.container .player .minControl .control {
+  width: 100%;
+  height: 1.14rem;
+  line-height: 1.14rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  pointer-events: none;
+}
+.container .player .maxControl {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+  visibility: hidden;
+}
+.container .player .maxControl .maxControl_content {
+  width: 100%;
+  height: 1.34765rem;
+  position: absolute;
+  top: 25%;
+  display: flex;
+}
+.container .player .maxControl .maxControl_content .div {
+  height: inherit;
+}
+.container .player .maxControl .maxControl_content .s_type {
+  flex: 1;
+}
+.container .player .maxControl .maxControl_content .s_type .icon-maxPlayer-random {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 27%;
+  margin-left: 30%;
+  color: #fff;
+}
+.container .player .maxControl .maxControl_content .s_btn {
+  flex: 3;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container .player .maxControl .maxControl_content .s_btn div {
+  width: 1.34765rem;
+  height: 1.34765rem;
+  float: left;
+}
+.container .player .maxControl .maxControl_content .s_btn .icon-maxPlayer-left {
+  width: 0.67rem;
+  height: 0.67rem;
+  margin-top: 25%;
+  color: #fff;
+}
+.container .player .maxControl .maxControl_content .s_btn .icon-player-right {
+  width: 0.67rem;
+  height: 0.67rem;
+  margin-top: 25%;
+  margin-right: 0;
+  float: right;
+  color: #fff;
+}
+.container .player .maxControl .maxControl_content .s_btn .icon-player-pause {
+  width: 1.34765rem;
+  height: 1.34765rem;
+  color: #fff;
+}
+.container .player .maxControl .maxControl_content .s_more {
+  flex: 1;
+}
+.container .player .maxControl .maxControl_content .s_more .icon-maxPlayer-more {
+  width: 0.4rem;
+  height: 0.4rem;
+  float: right;
+  margin-top: 27%;
+  margin-right: 30%;
+}
+/*svg*/
+.icon-pause {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  float: right;
+}
+.icon-player-right {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  float: right;
+}
