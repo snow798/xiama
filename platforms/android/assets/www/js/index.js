@@ -46,7 +46,28 @@
         }
     })
 
-}()
+}();
+
+!function(){
+    cookie.set({
+        appver: '1.5.2'
+    });
+
+    /*$.ajax({
+        type: 'GET',
+        url: 'http://music.qq.com/musicbox/shop/v3/data/hit/hit_all.js' ,
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        success: function(data){
+            console.log(data)
+        }
+    });*/
+
+}();
+
+function JsonCallback(data){
+    console.log(data)
+}
 
 var app = {
     // Application Constructor

@@ -142,6 +142,7 @@ body {
   overflow: hidden;
   opacity: 1;
   z-index: 105;
+  pointer-events: auto;
   transition: all 220ms;
 }
 .container .player .playerContent .player-header {
@@ -291,25 +292,43 @@ body {
   background-color: transparent;
   transition: all 80ms ease-out;
   z-index: 110;
+  pointer-events: none;
 }
 .container .player .minControl .progress {
   width: 100%;
   height: 0.04rem;
-  background-color: #eee;
+  position: relative;
   opacity: 0.8;
 }
-.container .player .minControl .progress .progress_handle {
+.container .player .minControl .progress .buffer {
+  position: absolute;
   width: 100%;
   height: 0.04rem;
-  background-color: #4B946A;
-  transform: translate3d(-40%, 0, 0);
+  top: 0;
+  left: 0;
+  z-index: 110;
+  background-color: #fec4aa;
+  transform: translate3d(-100%, 0, 0);
+}
+.container .player .minControl .progress .progress_handle {
+  position: absolute;
+  width: 100%;
+  height: 0.04rem;
+  top: 0;
+  left: 0;
+  z-index: 111;
+  background-color: #f60;
+  opacity: 0.6;
+  transform: translate3d(-100%, 0, 0);
 }
 .container .player .minControl .musicInfo {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 45px;
   position: relative;
   background-color: transparent;
   color: #fff;
+  pointer-events: auto;
+  z-index: 130;
 }
 .container .player .minControl .musicInfo .cover {
   width: 1.1rem;
@@ -346,8 +365,9 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 120;
   background-color: transparent;
-  pointer-events: none;
+  pointer-events: auto;
 }
 .container .player .maxControl {
   width: 100%;
@@ -418,19 +438,39 @@ body {
   margin-right: 30%;
 }
 /*svg*/
+#min_play {
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  float: right;
+  margin-right: 0.4rem;
+  z-index: 130;
+  pointer-events: auto;
+}
 .icon-pause {
   width: 0.4rem;
   height: 0.4rem;
-  margin-top: 0.4rem;
-  margin-right: 0.5rem;
+  vertical-align: middle;
+  color: #fff;
+}
+.icon-player {
+  width: 0.4rem;
+  height: 0.4rem;
+  vertical-align: middle;
+  color: #fff;
+}
+#min_next {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.4rem;
   color: #fff;
   float: right;
+  text-align: center;
+  pointer-events: auto;
 }
 .icon-player-right {
   width: 0.4rem;
   height: 0.4rem;
-  margin-top: 0.4rem;
-  margin-right: 0.5rem;
-  color: #fff;
-  float: right;
+  margin: 0;
+  vertical-align: middle;
 }

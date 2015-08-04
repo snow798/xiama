@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+<head>
+<title>wiseAudio - 基于jQuery+HTML5 Audio实现的音乐播放器</title>
+<meta charset="utf-8">
+<meta name="viewport" content="target-densitydpi=device-dpi,width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta name="author" content="WISE.KIM">
+<meta name="keywords" content="HTML5,audio,音乐,播放器">
+<meta name="description" content="基于jQuery+HTML5 Audio实现的音乐播放器">
+<!-- IOS移动设备优化 -->
+<meta name="apple-mobile-web-app-capable" content="yes"><!--全屏模式运行 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web App"> <!-- WEBAPP标题 -->
+<meta name="format-detection" content="telephone=no"><!-- 电话号码屏蔽-->
+<link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<style>
+* {
+	outline: 0 !important;
+}
+body {
+	padding-top: 50px;
+	font-family: "Microsoft YaHei", 'Helvetica Neue', "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	-webkit-overflow-scrolling: touch;
+	鈥搘ebkit-touch-callout: none;
+}
+.pr {
+	position: relative;
+}
+.pa {
+	position: absolute;
+}
+.px {
+	position: fixed;
+}
+.cp {
+	cursor: pointer;
+}
+/* navbar */
+.navbar-yckit {
+	border: none;
+	/* border-bottom: 1px solid #dedede;
+	*/
+	background: rgba(248, 248, 248, 0.901961);
+	border-radius: 0px;
+	/* background-image: -o-linear-gradient(-90deg, #ffffff 0%, #efefef 100%);
+	background-image: -moz-linear-gradient(-90deg, #ffffff 0%, #efefef 100%);
+	background-image: -ms-linear-gradient(-90deg, #ffffff 0%, #efefef 100%);
+	background-image: linear-gradient(-180deg, #ffffff 0%, #efefef 100%);
+	*/
+}
+.navbar-yckit li a:hover {
+	color: #666;
+}
+.navbar-nav>.open>a, .navbar-yckit .navbar-nav>.open>a:hover, .navbar-yckit .navbar-nav>.open>a:focus {
+	background: transparent;
+	color: #FC655F;
+}
+.navbar-brand span {
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+}
+.navbar-brand:hover span {
+	opacity: 0.6;
+}
+.navbar-yckit .navbar-red {
+	background: #FC655F;
+}
+.navbar-yckit .navbar-yellow {
+	background: #FDBC40;
+}
+.navbar-yckit .navbar-green {
+	background: #35CC4B;
+}
+.dropdown-menu {
+	padding: 0;
+	border: none;
+	margin-top: -10px !important;
+	border-radius: 2px !important;
+	box-shadow: none !important;
+	-webkit-transition: all 300ms cubic-bezier(0.34, 1.21, 0.4, 1);
+	-moz-transition: all 300ms cubic-bezier(0.34, 1.21, 0.4, 1);
+	transition: all 300ms cubic-bezier(0.34, 1.21, 0.4, 1);
+	-webkit-transform-origin: 20% 0;
+	-moz-transform-origin: 20% 0;
+	-ms-transform-origin: 20% 0;
+	-o-transform-origin: 20% 0;
+	transform-origin: 20% 0;
+	-webkit-transform: translateY(0) scale(0);
+	-moz-transform: translateY(0) scale(0);
+	-ms-transform: translateY(0) scale(0);
+	-o-transform: translateY(0) scale(0);
+	transform: translateY(0) scale(0);
+	opacity: 0;
+	pointer-events: none;
+	display: block;
+	background: #fff;
+}
+.user-avatar {
+	margin-top: 6px;
+	width: 38px;
+	border-radius: 8px;
+}
+.navbar-nav .open .dropdown-menu {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: translateY(0) scale(1);
+	-moz-transform: translateY(0) scale(1);
+	-ms-transform: translateY(0) scale(1);
+	-o-transform: translateY(0) scale(1);
+	transform: translateY(0) scale(1);
+}
+.dropdown-menu:after {
+	content: "";
+	position: absolute;
+	left: 50px;
+	top: -9px;
+	width: 0;
+	height: 0;
+	border-right: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-bottom: 5px solid #fff;
+}
+.dropdown-menu.dropdown-menu-right {
+	width: 130px !important;
+	min-width: 130px !important;
+}
+.navbar-right .dropdown-menu {
+	right: -8px !important;
+}
+.dropdown-menu-right:after {
+	content: "";
+	position: absolute;
+	left: auto !important;
+	right: 46px !important;
+	top: -9px;
+	width: 0;
+	height: 0;
+	border-right: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-bottom: 5px solid #fff;
+}
+.dropdown-menu li {
+	margin: 5px;
+}
+.dropdown-menu li a {
+	padding: 6px 15px;
+	border-radius: 2px;
+}
+.dropdown-menu li a:hover {
+	background: #FC655F;
+	color: #fff;
+}
+
+/*音乐列表样式*/
+#music-tip {
+	padding: 20px;
+	color: #999;
+}
+#music .button {
+	display: none;
+	width: 60px;
+	height: 60px;
+	line-height: 70px;
+	text-align: center;
+	left: 17px;
+	top: 0px;
+	z-index: 10;
+	cursor: pointer;
+}
+#music .progress {
+	display: none;
+	background: #efefef;
+	border-radius: 2px;
+	height: 5px;
+	left: 84px;
+	right: 100px;
+	top: 48px;
+	margin-bottom: 10px;
+}
+#music .progress span {
+	display: block;
+	width: 0%;
+	height: 5px;
+	background: #F5BDBD;
+	-webkit-transition: width ease-out 100ms;
+	-moz-transition: width ease-out 100ms;
+	transition: width ease-out 100ms;
+}
+#music .time {
+	display: none;
+	right: 52px;
+	top: 42px;
+	font-family: Arial;
+	font-size: 11px;
+	color: #fff;
+}
+#music .loop {
+	display: none;
+	-webkit-transform:scale(.9);
+	font-size: 11px;
+	right:20px;
+	top:42px;
+ 
+	cursor: pointer;
+	color: #fff;
+}
+#music .fa {
+	font-size: 2em;
+	color: #333;
+}
+#music div p {
+	position: relative;
+	background: #efefef;
+	border-radius: 35px 5px 5px 35px;
+	padding-right: 15px;
+	padding-left: 60px;
+	font-size: 1.1em;
+	height: 60px;
+	line-height: 55px;
+	cursor:pointer;
+	overflow: hidden;
+}
+#music div p span {
+	margin-top: 20px;
+	font-size: 12px;
+	background: transparent;
+	color: #999;
+}
+#music div img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+}
+#music .active img {
+	-webkit-animation: rotate 10s linear infinite;
+	-moz-animation: rotate 10s linear infinite;
+	animation: rotate 10s linear infinite;
+}
+#music .active {
+	background: #F07575;
+	color: #fff;
+}
+#music .active span {
+	text-transform: uppercase;
+	background: #fff;
+	color: #F07575;
+}
+@-moz-keyframes rotate {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-default navbar-yckit" role="navigation">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">金哲博客</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jinzhe.net" title="金哲博客">
+	      <span class="navbar-red"></span>
+	      <span class="navbar-yellow"></span>
+	      <span class="navbar-green"></span>
+      </a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+		<li class="active"><a href="http://jinzhe.net/demo/wiseAudio/"><i class="fa fa-fw fa-music"></i>&nbsp;wiseAudio</a></li>
+		<li><a href="http://jinzhe.net/demo/wiseSlider/"><i class="fa fa-fw fa-picture-o"></i>&nbsp;wiseSlider</a></li>
+		</ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div id="music-tip" class="text-center">请使用现代浏览器(需支持HTML5)倾听音乐。播放器支持键盘方向键控制调歌。</div>
+		<div id="music">
+			<div style="line-height:300px" class="text-center">loading...</div>
+		</div>
+		<br>
+	</div>
+	<br>
+</div>
+</body>
+</html>
+
+ 
+<script src="jquery.wiseAudio.js"></script>
+<script>
+$(function(){
+	$.wiseAudio({
+		// 歌曲数据JSON
+		data:"http://jinzhe.net/api.php?action=music&do=json",
+		//模仿模式 list:列表 random:随机
+		mode:"random",
+		list:function(options,audio,json){
+			var html='';
+			$(json).map(function(i){
+				html+="<div class='col-xs-12 col-sm-4 pr'>";
+				html+="<p class='playlist tip' data-title='"+json[i].name+"' data-id='"+i+"'>";
+				html+="<span class='badge pull-right'>"+json[i].art+"</span>";
+				html+="<img src='"+json[i].image+"' align='absmiddle'>&nbsp;&nbsp;"+json[i].name;
+				html+="</p>";
+				html+="<div class='pa button'><i class='fa fa-pause'></i></div>";
+				html+="<div class='pa progress'><span></span><p></p></div>";
+				html+="<div class='pa time'></div>";
+				html+="<div class='pa loop'></div>";
+				html+="</div>";
+			});
+			$("#music").html(html);
+			$(".tip").tooltip();
+ 
+			$(".loop").text({'random':'随机','list':'列表','repeat':'单曲'}[options.mode]);
+
+			$(document).on("click",".button",function(){
+				var $this=$(this);
+				if($this.find("i").hasClass("fa-pause")){
+					audio.pause();
+				}else{
+					audio.play();
+				}
+			});
+			$(document).on("click",".loop",function(){
+				var $this=$(this);
+				if($this.text()=='单曲'){
+					$(".loop").text('随机');
+					options.mode='random';
+				}else if($this.text()=='随机'){
+					$(".loop").text('列表');
+					options.mode='list';
+				}else if($this.text()=='列表'){
+					$(".loop").text('单曲');
+					options.mode='repeat';
+				}
+			});
+		},
+		onplay:function(){
+			setTimeout(function(){
+				$(".playlist").not(".active").siblings(".time,.progress,.loop").hide();
+				$(".playlist").siblings(".button").attr("style","");
+				$(".playlist.active").siblings(".button").find("i").removeClass("fa-play").addClass("fa-pause");
+				$(".playlist.active").siblings(".button,.progress,.time,.loop").show();
+				$(".playlist.active img").css({
+					"-webkit-animation-play-state":"running",
+					"-moz-animation-play-state":"running",
+					"animation-play-state":"running"
+				});
+				$("html,body").animate({scrollTop:$(".playlist.active").offset().top-90});
+				location.href="#!"+$(".playlist.active").data("title");
+			},100);
+		},
+		onpause:function(){
+			$(".playlist.active").siblings(".button").find("i").removeClass("fa-pause").addClass("fa-play");
+			$(".playlist.active img").removeClass("roll");
+			$(".playlist.active img").css({
+					"-webkit-animation-play-state":"paused",
+					"-moz-animation-play-state":"paused",
+					"animation-play-state":"paused"
+				});
+		}
+	});
+});
+</script>
