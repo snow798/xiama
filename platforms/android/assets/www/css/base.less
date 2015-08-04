@@ -201,7 +201,7 @@ body{
         overflow:hidden;
         list-style: none;
         transform:translate3d(-7.5rem,0,0);   //默认显示中间页
-        //transition: transform 160ms ease;
+        //transition: transform 200ms;
 
         li{
           width: 7.5rem;
@@ -419,6 +419,7 @@ body{
       position: relative;
       background-color: transparent;
       visibility: hidden;
+      pointer-events: auto;
 
       .maxControl_content{
         width: 100%;
@@ -472,6 +473,7 @@ body{
             height: 1.34765rem;
             color: #fff;
           }
+
         }
         .s_more{
           flex: 1;
@@ -508,6 +510,11 @@ body{
   width: 0.4rem;
   height: 0.4rem;
   vertical-align: middle;
+  color: #fff;
+}
+.max-player{
+  width: 1.34765rem;
+  height: 1.34765rem;
   color: #fff;
 }
 .icon-player{

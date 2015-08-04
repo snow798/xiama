@@ -375,6 +375,7 @@ body {
   position: relative;
   background-color: transparent;
   visibility: hidden;
+  pointer-events: auto;
 }
 .container .player .maxControl .maxControl_content {
   width: 100%;
@@ -451,6 +452,11 @@ body {
   width: 0.4rem;
   height: 0.4rem;
   vertical-align: middle;
+  color: #fff;
+}
+.max-player {
+  width: 1.34765rem;
+  height: 1.34765rem;
   color: #fff;
 }
 .icon-player {

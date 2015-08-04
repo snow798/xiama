@@ -110,7 +110,27 @@
             }()
         },
         prevSong: function(){
-
+            var base= this;
+            var song_id= app.currentMusic.preID || app.currentMusic.nowID;
+            this._getSongInfo(song_id, function(data){      //调用获取歌曲信息
+                console.log(data);
+                if(data.state== 0){
+                    data= data.data.song;
+                    base._playSong(data.listen_file);
+                    bus_play.put('$changMusic', data);
+                }else{
+                    console.log('获取曲目信息出错！')
+                }
+            });
+            app.currentMusic.preID= function(){
+                if(app.musicList[app.currentMusic.listName].$$location==0){                 //播放列表位置
+                    listPlayerLocation=0;
+                }else{
+                    listPlayerLocation= --app.musicList[app.currentMusic.listName].$$location
+                }
+                var t= app.musicList[app.currentMusic.listName].data.songs[listPlayerLocation].song_id;
+                return t;   //下一首音乐ID
+            }()
         }
     };
 
@@ -164,7 +184,7 @@
         //生成player content
         this.player_el.innerHTML= '';
         var ih= app.h-app.h*0.09430;
-        var pc_tpl= '<div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText">a sky full of stars</div><div class="author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
+        var pc_tpl= '<div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText" id="max_title">a sky full of stars</div><div class="author" id="max_author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
         var pc_content= document.createElement('div');
         pc_content.className= 'playerContent';
         pc_content.style['-webkit-transform']= 'translate3d(0,'+ih+'px,0)';
@@ -173,7 +193,7 @@
 
         //player control
         var sh= app.h*0.09430;
-        var pt_tpl= '<div class="minControl"><div class="progress"><div class="buffer"></div><div class="progress_handle"></div></div><div class="musicInfo" style=" height: '+sh+'px;"><div class="cover" style="width: '+sh+'px; height: '+sh+'px;"></div><div class="name">Eat Youself</div><div class="author">Goldfapp</div></div><div class="control"><div id="min_next"><svg class="icon icon-player-right"><use xlink:href="#icon-player-right"></use></svg></div><div id="min_play"><svg class="icon icon-player"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-player"></use></svg></div></div></div><div class="maxControl"><div class="maxControl_content"><div class="s_type"><svg class="icon icon-maxPlayer-random"><use xlink:href="#icon-maxPlayer-random"></use></svg></div><div class="s_btn"><div class="sv_left"><svg class="icon icon-maxPlayer-left"><use xlink:href="#icon-maxPlayer-left"></use></svg></div><div class="sv_centre"><svg class="icon icon-player-pause"><use xlink:href="#icon-player-pause"></use></svg></div><div class="sv_right"><svg class="icon icon-player-right"><use xlink:href="#icon-maxPlayer-right"></use></svg></div></div><div class="s_more"><svg class="icon icon-maxPlayer-more"><use xlink:href="#icon-maxPlayer-more"></use></svg></div></div></div>';
+        var pt_tpl= '<div class="minControl"><div class="progress"><div class="buffer"></div><div class="progress_handle"></div></div><div class="musicInfo" style=" height: '+sh+'px;"><div class="cover" style="width: '+sh+'px; height: '+sh+'px;"></div><div class="name">Eat Youself</div><div class="author">Goldfapp</div></div><div class="control"><div id="min_next"><svg class="icon icon-player-right"><use xlink:href="#icon-player-right"></use></svg></div><div id="min_play"><svg class="icon icon-player"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-player"></use></svg></div></div></div><div class="maxControl"><div class="maxControl_content"><div class="s_type"><svg class="icon icon-maxPlayer-random"><use xlink:href="#icon-maxPlayer-random"></use></svg></div><div class="s_btn"><div class="sv_left" id="max_prev"><svg class="icon icon-maxPlayer-left"><use xlink:href="#icon-maxPlayer-left"></use></svg></div><div class="sv_centre"><svg class="icon max-player"><use xlink:href="#max-player"></use></svg></div><div class="sv_right" id="max_next"><svg class="icon icon-player-right"><use xlink:href="#icon-maxPlayer-right"></use></svg></div></div><div class="s_more"><svg class="icon icon-maxPlayer-more"><use xlink:href="#icon-maxPlayer-more"></use></svg></div></div></div>';
         var pt_content= document.createElement('div');
         pt_content.className= 'playerControl';
         pt_content.style.height= sh+'px';
@@ -188,7 +208,7 @@
         this.min_cover_el= document.querySelector('.musicInfo>.cover');
         this.min_name_el= document.querySelector('.musicInfo>.name');
         this.min_author_el= document.querySelector('.musicInfo>.author');
-
+        //max
         this.playerBack_el=document.querySelector('.player-back');
         this.maxControl_el= document.querySelector('.maxControl');
         this.playHeader_el= document.querySelector('.player-header');
@@ -226,6 +246,13 @@
             base.min_cover_el.style.backgroundImage= 'url('+data.logo+')';
             base.min_name_el.innerText= data.song_name;
             base.min_author_el.innerText= data.singers;
+        });
+        //  max
+        var max_music_title= document.querySelector('#max_title');
+        var max_music_author= document.querySelector('#max_author');
+        bus_play.subscribe('$changMusic', function(type, data){
+            max_music_title.innerText= data.song_name;
+            max_music_author.innerText= data.singers;
         })
 
     };
@@ -291,12 +318,14 @@
         musicInfo.on('panstart', function(ev){
             o= 0;
             init_transform= base.config.musicInfo.offsetW;
+            base.music_info_content.style['-webkit-transition-duration']= '0s';
         });
         musicInfo.on('panmove', function(ev){
             // console.log(ev);
             setPan(ev.deltaX);
         });
         musicInfo.on('panend', function(ev){
+            base.music_info_content.style['-webkit-transition-duration']= '0.3s';
             if(base.config.musicInfo.current == 2){
                 if(base.config.musicInfo.offsetW<(init_w+init_w/2)){
                     base.music_info_content.style['-webkit-transform']= 'translate3d('+init_w*2+'px,0,0)';
@@ -344,7 +373,7 @@
             return false
         });
     };
-    //播放器相关 进度条
+    //播放器相关 进度条 事件绑定
     Player.prototype.musicPlayer= function(){
         var min_play_el= document.querySelector('#min_play');
         var buffer= document.querySelector('.buffer');
@@ -389,30 +418,59 @@
             handle.style['-webkit-transform']= 'translate3d('+-currentValue+'%,0,0)';
         }, false);
 
+        //min max 暂停/播放SVG切换 及播放状态控制
+        var max_centre= document.querySelector('.sv_centre');
         bus_play.subscribe("$play", function(type, payload){
             console.log(type, payload);
             mConfig.played= payload ? true : !mConfig.played;   //播放状态
             if(mConfig.played){   //tap暂停
                 audio.play();
                 min_play_el.innerHTML= '<svg class="icon icon-pause"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pause"></use></svg>';
+                max_centre.innerHTML= '<svg class="icon icon-player-pause"><use xlink:href="#icon-player-pause"></use></svg>';
                 mConfig.played= true;
             }else{                  //tap开始播放
                 audio.pause();
                 min_play_el.innerHTML= '<svg class="icon icon-player"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-player"></use></svg>';
+                max_centre.innerHTML= '<svg class="icon max-player"><use xlink:href="#max-player"></use></svg>';
                 mConfig.played= false;
             }
 
         });
+
+
         //min暂停/播放
         min_play_ev.on('tap', function(){
             bus_play.put('$play', false);
         });
-        //下一曲
-        min_next_ev.on('tap', function(){
-            song.nextSong();
-            bus_play.put('$play', true);   //播放状态
+
+        //max暂停/播放
+        var max_play_ev= document.querySelector('.sv_centre');
+        max_play_ev= new Hammer(max_play_ev);
+        max_play_ev.on('tap', function(){
+            bus_play.put('$play', false);
         });
 
+        //min下一曲
+        min_next_ev.on('tap', function(){
+            song.nextSong();
+            bus_play.put('$play', true);   //强制播放状态
+        });
+
+        //max 下一曲
+        var max_next= document.querySelector('#max_next');
+        max_next_ev= new Hammer(max_next);
+        max_next_ev.on('tap', function(){
+            song.nextSong();
+            bus_play.put('$play', true);   //强制播放状态
+        });
+
+        //max 上一曲
+        var max_prev= document.querySelector('#max_prev');
+        max_prev_ev= new Hammer(max_prev);
+        max_prev_ev.on('tap', function(){
+            song.prevSong();
+            bus_play.put('$play', true);   //强制播放状态
+        });
     };
 
 
@@ -438,3 +496,4 @@
         musicPlay.init();
     })*/
 }(window.app);
+
