@@ -38,6 +38,7 @@
     };
     initApp();
     window.addEventListener('resize', function(){
+        location.reload();
         initApp();
     });
     window.addEventListener('resize', function(){
@@ -184,7 +185,7 @@
         //生成player content
         this.player_el.innerHTML= '';
         var ih= app.h-app.h*0.09430;
-        var pc_tpl= '<div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText" id="max_title">a sky full of stars</div><div class="author" id="max_author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
+        var pc_tpl= '<div class="album_bg"></div><div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText" id="max_title">a sky full of stars</div><div class="author" id="max_author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
         var pc_content= document.createElement('div');
         pc_content.className= 'playerContent';
         pc_content.style['-webkit-transform']= 'translate3d(0,'+ih+'px,0)';
@@ -199,6 +200,10 @@
         pt_content.style.height= sh+'px';
         pt_content.innerHTML= pt_tpl;
         this.player_el.appendChild(pt_content);
+
+        /*var album= document.createElement('div');
+        album.className= 'album_bg';
+        this.player_el.appendChild(album);*/
 
         this.playerContent_el= document.querySelector('.playerContent');
         this.playerControl_el= document.querySelector('.playerControl');
@@ -225,19 +230,24 @@
         this.maxCover_el.style.backgroundImage= this.min_cover_el.style.backgroundImage= cuverStr;
         var img= new Image();
         img.src= this.config.coverSrc;
-        RGBaster.colors(this.config.coverSrc, {
-            paletteSize: 30, // 调色板大小
-            exclude: [ 'rgb(255,255,255)','rgb(0,0,0)','rgb(1,1,1)'],
-            success: function(payload) {
-                // payload.dominant是主色，RGB形式表示
-                // payload.secondary是次色，RGB形式表示
-                // payload.palette是调色板，含多个主要颜色，数组
-                console.log(payload.dominant);
-                console.log(payload.secondary);
-                console.log(payload.palette);
-                base.playerContent_el.style.backgroundImage= 'linear-gradient(to left,'+payload.palette[0]+'0%,'+payload.palette[1]+'50%,'+payload.palette[0]+'100%)';
-            }
-        });
+
+        function setBgGradient(src){
+            RGBaster.colors(src, {
+                paletteSize: 30, // 调色板大小
+                exclude: [ 'rgb(255,255,255)','rgb(0,0,0)','rgb(1,1,1)'],
+                success: function(payload) {
+                    // payload.dominant是主色，RGB形式表示
+                    // payload.secondary是次色，RGB形式表示
+                    // payload.palette是调色板，含多个主要颜色，数组
+                    console.log(payload.dominant);
+                    console.log(payload.secondary);
+                    console.log(payload.palette);
+                    base.playerContent_el.style.backgroundImage= 'linear-gradient(to left,'+payload.dominant+'0%,'+payload.secondary+'50%,'+payload.dominant+'100%)';
+                }
+            });
+        }
+       // setBgGradient(this.config.coverSrc);
+
         this.playBack();
 
         // min
@@ -248,11 +258,26 @@
             base.min_author_el.innerText= data.singers;
         });
         //  max
+        var album_bg= document.querySelector('.album_bg');
         var max_music_title= document.querySelector('#max_title');
         var max_music_author= document.querySelector('#max_author');
         bus_play.subscribe('$changMusic', function(type, data){
             max_music_title.innerText= data.song_name;
             max_music_author.innerText= data.singers;
+            // max专辑封面
+            var site= app.musicList[app.currentMusic.listName].$$location-1;
+            var album_loago= app.musicList[app.currentMusic.listName].data.songs[site].album_logo;
+            album_loago= album_loago.replace(/_115w_115h/i, "_768w_768h");
+            var buffer_img= new Image();
+            buffer_img.src= album_loago;
+            buffer_img.addEventListener('load', function(e){
+                base.maxCover_el.style.backgroundImage= 'url('+this.src+')';
+                album_bg.style.backgroundImage= 'url('+this.src+')';
+
+            });
+            //设置背景渐变
+           // setBgGradient(album_loago);
+
         })
 
     };

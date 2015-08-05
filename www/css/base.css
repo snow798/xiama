@@ -137,13 +137,27 @@ body {
 .container .player .playerContent {
   width: 100%;
   height: 100%;
-  background-color: #f50;
+  background-color: #000;
   position: relative;
   overflow: hidden;
   opacity: 1;
   z-index: 105;
   pointer-events: auto;
   transition: all 220ms;
+}
+.container .player .playerContent .album_bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  color: #000;
+  background-color: #000;
+  background-image: url('../img/X.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-filter: blur(25px);
 }
 .container .player .playerContent .player-header {
   width: 100%;
@@ -193,10 +207,10 @@ body {
   float: left;
 }
 .container .player .playerContent .myList {
-  background-color: indianred;
+  background-color: transparent;
 }
 .container .player .playerContent .album {
-  background-color: aquamarine;
+  background-color: transparent;
 }
 .container .player .playerContent .lyrics {
   width: 7.5rem;

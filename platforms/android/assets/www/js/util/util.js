@@ -95,7 +95,7 @@ util={
                 if(fn && fn instanceof Function){
                     if(isJsonp){
                         var data= JSON.parse(xmlHttp.responseText.substring(config.callback.length+1, xmlHttp.responseText.length-1));
-                        console.log(data)
+                        console.log(data);
                         fn(data);
                     }else{
                         fn(xmlHttp.responseText);
