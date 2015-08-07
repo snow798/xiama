@@ -2,21 +2,165 @@
 <html style="font-size: 50px;">
     <head>
         <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="css/idangerous.swiper.css">
         <link rel="stylesheet" type="text/css" href="css/base.css">
         <link rel="stylesheet" href="css/anmina.css">
         <title>Hello World</title>
     </head>
 
     <body>
+    <!--svg图标-->
+    <svg style="display: none;">
+        <symbol id="icon-pause" viewBox="300 250 420 530">
+            <title>pause</title>
+            <path fill="#ffffff" d="M352 44c-17.664 0-32 14.304-32 32L320 524c0 17.664 14.336 32 32 32s32-14.336 32-32l0-448C384 58.304 369.664 44 352 44zM672 44c-17.696 0-32 14.304-32 32L640 524c0 17.664 14.304 32 32 32s32-14.336 32-32l0-448C704 58.304 689.696 44 672 44z" transform="translate(0, 812) scale(1, -1)"/>
+        </symbol>
+        <symbol id="icon-player-right" viewBox="250 150 590 720">
+            <title>player-right</title>
+            <path fill="#ffffff" d="M817.088 327.04l-512 323.744C295.232 657.024 282.752 657.408 272.576 651.776 262.336 646.144 256 635.392 256 623.744l0-647.328c0-11.648 6.336-22.4 16.576-28.032 4.8-2.656 10.112-3.968 15.424-3.968 5.952 0 11.904 1.664 17.088 4.928l512 323.616C826.368 278.816 832 289.024 832 300 832 310.976 826.368 321.184 817.088 327.04z" transform="translate(0, 812) scale(1, -1)"/>
+        </symbol>
+        <symbol id="icon-player-pause" viewBox="0 0 65 65">
+
+            <title>player-pause</title>
+            <line fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" x1="25" y1="23" x2="25" y2="41"/>
+            <line fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" x1="38" y1="23" x2="38" y2="41"/>
+            <path fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" d="M53.92,10.081
+		c12.107,12.105,12.107,31.732,0,43.838c-12.106,12.108-31.734,12.108-43.839,0c-12.107-12.105-12.107-31.732,0-43.838
+		C22.186-2.027,41.813-2.027,53.92,10.081z"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-left" viewBox="0 0 512 512">
+            <title>player-maxPlayer-left</title>
+            <path fill="#ffffff" d="M418,21L183,206c-5,4-8,10-8,17s3,13,8,17l235,185c4,3,8,5,13,5c13,0,22-11,22-22V38C453,22,434,9,418,21z M409,363
+		L232,223L409,83V363z"/>
+            <path fill="#ffffff" d="M81,22c-14,0-24,11-24,25v356c0,14,10,25,24,25s25-11,25-25V47C106,33,95,22,81,22z"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-right" viewBox="0 0 512 512">
+            <title>player-maxPlayer-right</title>
+            <path fill="#ffffff" d="M328,206L94,21C78,9,59,22,59,38v370c0,11,9,22,22,22c5,0,9-2,13-5l234-185c5-4,9-10,9-17S333,210,328,206z M102,363V83
+		l178,140L102,363z"/>
+            <path fill="#ffffff" d="M427,22c-14,0-25,11-25,25v356c0,14,11,25,25,25s24-11,24-25V47C451,33,441,22,427,22z"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-more" viewBox="0 0 64 64">
+            <title>player-maxPlayer-more</title>
+            <path fill="#eeeeee" d="M13.001,26C9.687,26,7,28.687,7,32.002c0,3.314,2.687,6.001,6.001,6.001s6.001-2.687,6.001-6.001
+				C19.001,28.687,16.315,26,13.001,26z M51.001,26C47.688,26,45,28.687,45,32.002c0,3.314,2.688,6.001,6.001,6.001
+				s6.001-2.687,6.001-6.001C57.001,28.687,54.314,26,51.001,26z M32.001,26C28.687,26,26,28.687,26,32.002
+				c0,3.314,2.686,6.001,6.001,6.001c3.315,0,6.001-2.687,6.001-6.001C38.001,28.687,35.314,26,32.001,26z"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-random" viewBox="0 0 65 65">
+            <title>player-maxPlayer-random</title>
+            <g>
+                <path fill="none" stroke="#eeeeee" stroke-width="2" stroke-miterlimit="10" d="M31,1C23.322,1,15.646,3.929,9.788,9.787
+		C-0.91,20.484-1.841,37.248,6.997,49l6.001,6.002"/>
+            </g>
+            <g>
+                <path fill="none" stroke="#eeeeee" stroke-width="2" stroke-miterlimit="10" d="M33,63c7.678,0,15.354-2.929,21.212-8.787
+		C64.91,43.516,65.841,26.752,57.003,15l-6.001-6.002"/>
+            </g>
+            <polyline fill="none" stroke="#eeeeee" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="13,44 13,55 2,55
+	"/>
+            <polyline fill="none" stroke="#eeeeee" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="51,20 51,9 62,9
+	"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-love" viewBox="0 0 60 60">
+            <title>player-maxPlayer-love</title>
+            <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M45,24c0-4.6-3.7-8.3-8.3-8.3c-2.7,0-5.1,1.3-6.7,3.3c-1.5-2-3.9-3.3-6.7-3.3c-4.6,0-8.3,3.7-8.3,8.3c0,2,0.7,3.8,1.8,5.2l0,0
+	c0.1,0.2,13.1,15,13.1,15l13.2-15.1C44.3,27.8,45,26,45,24z"/>
+        </symbol>
+        <symbol id="icon-maxPlayer-comment" viewBox="195 200 617 617">
+            <title>player-maxPlayer-comment</title>
+            <path fill="#ffffff" d="M504 388.016c-17.664 0-32-14.336-32-32s14.336-32 32-32 32 14.336 32 32S521.664 388.016 504 388.016zM744 596l-480 0c-35.344 0-64-28.656-64-64l0-368c0-35.344 28.656-64 64-64l131.232 0 86.144-86.128c12.496-12.496 32.752-12.496 45.248 0l86.128 86.128L744 100c35.344 0 64 28.656 64 64l0 368C808 567.344 779.344 596 744 596zM776 164c0-17.664-14.336-32-32-32l-144.736 0-83.952-83.952c-6.256-6.24-16.384-6.24-22.624 0L408.736 132 264 132c-17.664 0-32 14.336-32 32l0 368c0 17.68 14.336 32 32 32l480 0c17.664 0 32-14.32 32-32L776 164zM648 388.016c-17.68 0-32-14.336-32-32s14.32-32 32-32c17.664 0 32 14.336 32 32S665.664 388.016 648 388.016zM360 388.016c-17.664 0-32-14.336-32-32s14.336-32 32-32 32 14.336 32 32S377.664 388.016 360 388.016z" transform="translate(0, 812) scale(1, -1)"/>
+        </symbol>
+        <symbol id="icon-playerHrader-back" viewBox="120 220 780 425">
+            <title>icon-playerHrader-back</title>
+            <path fill="#ffffff" d="M890.336 481.088c-12.576 12.416-32.8 12.352-45.248-0.192L517.248 150.048 184.832 479.488c-12.576 12.448-32.8 12.352-45.28-0.192-12.448-12.576-12.352-32.832 0.192-45.28l353.312-350.112c0.544-0.544 1.248-0.672 1.792-1.184 0.128-0.128 0.16-0.288 0.288-0.416 6.24-6.176 14.4-9.28 22.528-9.28 8.224 0 16.48 3.168 22.72 9.472l350.112 353.312C902.976 448.384 902.88 468.64 890.336 481.088z" transform="translate(0, 812) scale(1, -1)"/>
+        </symbol>
+        <symbol id="icon-player" viewBox="0 0 50 50">
+            <title>icon-player</title>
+            <path fill="#ffffff" d="M12.287,41.224c0.184,0,0.368-0.051,0.53-0.152l24-15c0.292-0.183,0.47-0.503,0.47-0.848
+	s-0.178-0.665-0.47-0.848l-24-15c-0.309-0.192-0.697-0.204-1.015-0.026c-0.318,0.176-0.515,0.511-0.515,0.875v30
+	c0,0.363,0.197,0.698,0.515,0.875C11.954,41.182,12.12,41.224,12.287,41.224z M13.287,12.028L34.4,25.224L13.287,38.419V12.028z" transform="translate(-10, -10) scale(1.5, 1.5)"/>
+        </symbol>
+        <symbol id="max-player" viewBox="0 0 65 64">
+            <title>max-player</title>
+            <polygon fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="27,21 41,32
+		27,43 	"/>
+            <path fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" d="M53.92,10.081
+		c12.107,12.105,12.107,31.732,0,43.838c-12.106,12.108-31.734,12.108-43.839,0c-12.107-12.105-12.107-31.732,0-43.838
+		C22.186-2.027,41.813-2.027,53.92,10.081z"/>
+        </symbol>
+        <symbol id="sos-search" viewBox="0 0 32 32">
+            <title>sos-search</title>
+            <g sketch:type="MSLayerGroup" transform="translate(-256.000000, -1139.000000)" fill="#000000">
+                <path d="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z" id="search" sketch:type="MSShapeGroup"></path>
+            </g>
+
+        </symbol>
+        <symbol id="sos-more" viewBox="0 0 24 24">
+            <title>sos-more</title>
+            <circle style="fill:#b7b5b5;" cx="12" cy="12" r="3"/>
+            <circle style="fill:#b7b5b5;" cx="21" cy="12" r="3"/>
+            <circle style="fill:#b7b5b5;" cx="3" cy="12" r="3"/>
+        </symbol>
+    </svg>
         <div class="main">
             <div class="menu"></div>
             <div class="container">
-                <div class="myMusic"></div>
-                <div class="referrals"></div>
-                <div class="musicPavilion"></div>
+                <div class="main-sos">
+                    <div class="main-sos-head">
+                        <div class="sos-head-userPhoto">
+                            <span></span>
+                        </div>
+                        <ul class="sos-mid-tip">
+                            <li>我的</li>
+                            <li>推介</li>
+                            <li>乐馆</li>
+                        </ul>
+                        <div class="sos-search">
+                            <svg class="icon sos-search"><use xlink:href="#sos-search"></use></svg>
+                        </div>
+                    </div>
+                    <ul class="sos-show">
+                        <li class="myMusic">
+                            42342
+                        </li>
+                        <li class="referrals">
+                            <div class="v_cont">
+                                <div class="ref_banner">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper" id="ref_banner"></div>
+                                    </div>
+                                    <div class="pagination"></div>
+                                </div>
+
+                                <div class="ref_topLinks" id="ref_radios"></div>
+
+                                <div class="ref_referrals30 sq_list">
+                                    <div class="author">火花人</div>
+                                    <div class="title">今日推荐歌单（30首）</div>
+                                    <ul class="sq_list_cont" id="ref_referrals30">
+                                        <li class="item">
+                                            <div class="album" style="background-image: url(http://pic.xiami.net/images/album/img45/49845/16744797201379914206.jpg@1e_1c_0i_1o_100Q_96w_96h.webp);"></div>
+                                            <div class="song">
+                                                <div class="song_title">weqr rwrwre ewewer </div>
+                                                <div class="song_author">luojh</div>
+                                            </div>
+                                            <div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="musicPavilion">344ggg</li>
+                    </ul>
+
+                </div>
                 <div class="player">
                    <!-- <div class="playerContent">
                         <ul>
@@ -49,89 +193,8 @@
 
             </div>
         </div>
-        <!--svg图标-->
-        <svg>
-            <symbol id="icon-pause" viewBox="300 250 420 530">
-                <title>pause</title>
-                <path fill="#ffffff" d="M352 44c-17.664 0-32 14.304-32 32L320 524c0 17.664 14.336 32 32 32s32-14.336 32-32l0-448C384 58.304 369.664 44 352 44zM672 44c-17.696 0-32 14.304-32 32L640 524c0 17.664 14.304 32 32 32s32-14.336 32-32l0-448C704 58.304 689.696 44 672 44z" transform="translate(0, 812) scale(1, -1)"/>
-            </symbol>
-            <symbol id="icon-player-right" viewBox="250 150 590 720">
-                <title>player-right</title>
-                <path fill="#ffffff" d="M817.088 327.04l-512 323.744C295.232 657.024 282.752 657.408 272.576 651.776 262.336 646.144 256 635.392 256 623.744l0-647.328c0-11.648 6.336-22.4 16.576-28.032 4.8-2.656 10.112-3.968 15.424-3.968 5.952 0 11.904 1.664 17.088 4.928l512 323.616C826.368 278.816 832 289.024 832 300 832 310.976 826.368 321.184 817.088 327.04z" transform="translate(0, 812) scale(1, -1)"/>
-            </symbol>
-            <symbol id="icon-player-pause" viewBox="0 0 65 65">
 
-                <title>player-pause</title>
-                <line fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" x1="25" y1="23" x2="25" y2="41"/>
-                <line fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" x1="38" y1="23" x2="38" y2="41"/>
-                <path fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" d="M53.92,10.081
-		c12.107,12.105,12.107,31.732,0,43.838c-12.106,12.108-31.734,12.108-43.839,0c-12.107-12.105-12.107-31.732,0-43.838
-		C22.186-2.027,41.813-2.027,53.92,10.081z"/>
-            </symbol>
-            <symbol id="icon-maxPlayer-left" viewBox="0 0 512 512">
-                <title>player-maxPlayer-left</title>
-                <path fill="#ffffff" d="M418,21L183,206c-5,4-8,10-8,17s3,13,8,17l235,185c4,3,8,5,13,5c13,0,22-11,22-22V38C453,22,434,9,418,21z M409,363
-		L232,223L409,83V363z"/>
-                <path fill="#ffffff" d="M81,22c-14,0-24,11-24,25v356c0,14,10,25,24,25s25-11,25-25V47C106,33,95,22,81,22z"/>
-            </symbol>
-            <symbol id="icon-maxPlayer-right" viewBox="0 0 512 512">
-                <title>player-maxPlayer-right</title>
-                <path fill="#ffffff" d="M328,206L94,21C78,9,59,22,59,38v370c0,11,9,22,22,22c5,0,9-2,13-5l234-185c5-4,9-10,9-17S333,210,328,206z M102,363V83
-		l178,140L102,363z"/>
-                <path fill="#ffffff" d="M427,22c-14,0-25,11-25,25v356c0,14,11,25,25,25s24-11,24-25V47C451,33,441,22,427,22z"/>
-               </symbol>
-            <symbol id="icon-maxPlayer-more" viewBox="0 0 64 64">
-                <title>player-maxPlayer-more</title>
-                <path fill="#eeeeee" d="M13.001,26C9.687,26,7,28.687,7,32.002c0,3.314,2.687,6.001,6.001,6.001s6.001-2.687,6.001-6.001
-				C19.001,28.687,16.315,26,13.001,26z M51.001,26C47.688,26,45,28.687,45,32.002c0,3.314,2.688,6.001,6.001,6.001
-				s6.001-2.687,6.001-6.001C57.001,28.687,54.314,26,51.001,26z M32.001,26C28.687,26,26,28.687,26,32.002
-				c0,3.314,2.686,6.001,6.001,6.001c3.315,0,6.001-2.687,6.001-6.001C38.001,28.687,35.314,26,32.001,26z"/>
-            </symbol>
-            <symbol id="icon-maxPlayer-random" viewBox="0 0 65 65">
-                <title>player-maxPlayer-random</title>
-                <g>
-                    <path fill="none" stroke="#eeeeee" stroke-width="2" stroke-miterlimit="10" d="M31,1C23.322,1,15.646,3.929,9.788,9.787
-		C-0.91,20.484-1.841,37.248,6.997,49l6.001,6.002"/>
-                </g>
-                <g>
-                    <path fill="none" stroke="#eeeeee" stroke-width="2" stroke-miterlimit="10" d="M33,63c7.678,0,15.354-2.929,21.212-8.787
-		C64.91,43.516,65.841,26.752,57.003,15l-6.001-6.002"/>
-                </g>
-                <polyline fill="none" stroke="#eeeeee" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="13,44 13,55 2,55
-	"/>
-                <polyline fill="none" stroke="#eeeeee" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="51,20 51,9 62,9
-	"/>
-            </symbol>
-            <symbol id="icon-maxPlayer-love" viewBox="0 0 60 60">
-                <title>player-maxPlayer-love</title>
-                <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-	M45,24c0-4.6-3.7-8.3-8.3-8.3c-2.7,0-5.1,1.3-6.7,3.3c-1.5-2-3.9-3.3-6.7-3.3c-4.6,0-8.3,3.7-8.3,8.3c0,2,0.7,3.8,1.8,5.2l0,0
-	c0.1,0.2,13.1,15,13.1,15l13.2-15.1C44.3,27.8,45,26,45,24z"/>
-            </symbol>
-            <symbol id="icon-maxPlayer-comment" viewBox="195 200 617 617">
-                <title>player-maxPlayer-comment</title>
-                <path fill="#ffffff" d="M504 388.016c-17.664 0-32-14.336-32-32s14.336-32 32-32 32 14.336 32 32S521.664 388.016 504 388.016zM744 596l-480 0c-35.344 0-64-28.656-64-64l0-368c0-35.344 28.656-64 64-64l131.232 0 86.144-86.128c12.496-12.496 32.752-12.496 45.248 0l86.128 86.128L744 100c35.344 0 64 28.656 64 64l0 368C808 567.344 779.344 596 744 596zM776 164c0-17.664-14.336-32-32-32l-144.736 0-83.952-83.952c-6.256-6.24-16.384-6.24-22.624 0L408.736 132 264 132c-17.664 0-32 14.336-32 32l0 368c0 17.68 14.336 32 32 32l480 0c17.664 0 32-14.32 32-32L776 164zM648 388.016c-17.68 0-32-14.336-32-32s14.32-32 32-32c17.664 0 32 14.336 32 32S665.664 388.016 648 388.016zM360 388.016c-17.664 0-32-14.336-32-32s14.336-32 32-32 32 14.336 32 32S377.664 388.016 360 388.016z" transform="translate(0, 812) scale(1, -1)"/>
-            </symbol>
-            <symbol id="icon-playerHrader-back" viewBox="120 220 780 425">
-                <title>icon-playerHrader-back</title>
-                <path fill="#ffffff" d="M890.336 481.088c-12.576 12.416-32.8 12.352-45.248-0.192L517.248 150.048 184.832 479.488c-12.576 12.448-32.8 12.352-45.28-0.192-12.448-12.576-12.352-32.832 0.192-45.28l353.312-350.112c0.544-0.544 1.248-0.672 1.792-1.184 0.128-0.128 0.16-0.288 0.288-0.416 6.24-6.176 14.4-9.28 22.528-9.28 8.224 0 16.48 3.168 22.72 9.472l350.112 353.312C902.976 448.384 902.88 468.64 890.336 481.088z" transform="translate(0, 812) scale(1, -1)"/>
-            </symbol>
-            <symbol id="icon-player" viewBox="0 0 50 50">
-                <title>icon-player</title>
-                <path fill="#ffffff" d="M12.287,41.224c0.184,0,0.368-0.051,0.53-0.152l24-15c0.292-0.183,0.47-0.503,0.47-0.848
-	s-0.178-0.665-0.47-0.848l-24-15c-0.309-0.192-0.697-0.204-1.015-0.026c-0.318,0.176-0.515,0.511-0.515,0.875v30
-	c0,0.363,0.197,0.698,0.515,0.875C11.954,41.182,12.12,41.224,12.287,41.224z M13.287,12.028L34.4,25.224L13.287,38.419V12.028z" transform="translate(-10, -10) scale(1.5, 1.5)"/>
-            </symbol>
-            <symbol id="max-player" viewBox="0 0 65 64">
-                <title>max-player</title>
-                <polygon fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="27,21 41,32
-		27,43 	"/>
-                <path fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" d="M53.92,10.081
-		c12.107,12.105,12.107,31.732,0,43.838c-12.106,12.108-31.734,12.108-43.839,0c-12.107-12.105-12.107-31.732,0-43.838
-		C22.186-2.027,41.813-2.027,53.92,10.081z"/>
-            </symbol>
-        </svg>
-       <!-- <script src="http://172.16.7.100:8080/target/target-script-min.js#anonymous"></script>-->
+        <script src="http://172.16.7.100:8080/target/target-script-min.js#anonymous"></script>
         <script src="lib/jiema.js"></script>
         <script src="lib/prefixfree.min.js"></script>
         <script src="lib/cookie.js"></script>
@@ -140,6 +203,7 @@
         <script src="js/util/util.js"></script>
         <script src="lib/hammer.min.js"></script>
         <script src="lib/rgbaster/rgbaster.js"></script>
+        <script src="lib/idangerous.swiper.min.js"></script>
         <!--<script src="cordova.js"></script>-->
         <script src="js/index.js"></script>
         <script src="js/main.js"></script>

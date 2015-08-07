@@ -64,6 +64,7 @@
         app.musicList.newMusicList.$$location= 0;
         app.currentMusic.nowID= app.musicList.newMusicList.data.songs[0].song_id;
         app.currentMusic.listName= 'newMusicList';
+        bus_play.put('$musicLoaded' );
     });
 
     var song= window.song= {
@@ -185,7 +186,7 @@
         //生成player content
         this.player_el.innerHTML= '';
         var ih= app.h-app.h*0.09430;
-        var pc_tpl= '<div class="album_bg"></div><div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText" id="max_title">a sky full of stars</div><div class="author" id="max_author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
+        var pc_tpl= '<div class="album_bg"></div><div class="player-header"><div class="player-back"><svg class="icon-playerHrader-back"><use xlink:href="#icon-playerHrader-back"></use></svg></div><div class="player-Page-tag"></div><div class="player-similar"></div></div><ul class="music_info_content"><li class="myList"><div class="mylist_item"><div class="m_title">I Really Like You</div><div class="m_author">Carly Rae Jepsen</div><div class="m_time">4:25</div></div></li><li class="lyrics"><div class="max_cover"></div><div class="music_subjoin" style="height: '+app.h*0.1390+'px"><div class="max-progress"></div><div class="max-music-tip"><div class="tip-love"><svg class="icon icon-maxPlayer-love"><use xlink:href="#icon-maxPlayer-love"></use></svg></div><div class="tip-title"><div class="titleText" id="max_title">a sky full of stars</div><div class="author" id="max_author">coldplay</div></div><div class="tip-remark"><svg class="icon icon-maxPlayer-comment"><use xlink:href="#icon-maxPlayer-comment"></use></svg><span>247</span></div></div></div><div class="lyrics_text" style="height: '+app.h*0.2699186+'px;">Look at the stars; look how they shine for you</div></li><li class="album"></li></ul>';
         var pc_content= document.createElement('div');
         pc_content.className= 'playerContent';
         pc_content.style['-webkit-transform']= 'translate3d(0,'+ih+'px,0)';
@@ -249,6 +250,18 @@
        // setBgGradient(this.config.coverSrc);
 
         this.playBack();
+
+        //播放列表生成
+        var song_list= document.querySelector('.myList');
+        bus_play.subscribe('$musicLoaded', function(ev, data){
+            var currentList= app.musicList[app.currentMusic.listName].data.songs;
+            var html= '';
+            for(var i in currentList){
+                html += '<div class="mylist_item"><div class="m_title">'+ currentList[i].song_name+'</div><div class="m_author">'+ currentList[i].singers+'</div><div class="m_time">4:25</div></div>'
+            }
+            song_list.innerHTML= html;
+            //console.log(333344,currentList);
+        });
 
         // min
         bus_play.subscribe('$changMusic', function(type, data){
@@ -520,5 +533,79 @@
 /*    window.addEventListener('resize', function(){
         musicPlay.init();
     })*/
+}(window.app);
+
+//首页中间 referrals模块
+!function(app){
+    util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438914458351&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=1&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Acf%3A0a%3A70&proxy=0&api_sig=85d03053806d90e21faa3bc75aaccb5e&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
+        bus_play.put('$ref_dataed', JSON.parse(data));
+    });
+
+    bus_play.subscribe('$ref_dataed', function(ev, data){
+        console.log(ev, data);
+        //类型模板
+        ref_tpl={
+          toplist: function(ele, data){
+              //<li class="item"><div class="album"style="background-image: url(http://pic.xiami.net/images/album/img45/49845/16744797201379914206.jpg@1e_1c_0i_1o_100Q_96w_96h.webp);"></div><div class="song"><div class="song_title">weqr rwrwre ewewer</div><div class="song_author">luojh</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>
+                var html= '';
+              for(var s in data.songs){
+                var sel= data.songs[s];
+                  html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
+              }
+                ele.innerHTML= html;
+          }
+        };
+
+        //首页ref banner
+        var fillFn={
+            ref_banner: function(data){
+                var html = '';
+                var ref_banner= document.querySelector('#ref_banner');
+                for(var s in data.banner){
+                    html += '<div class="swiper-slide" data-title="'+data.banner[s].title+'" data-href="'+data.banner[s].url+'"> <img src="'+data.banner[s].logo+'"> </div>';
+                }
+                ref_banner.innerHTML= html;
+                var banner = new Swiper('.swiper-container',{
+                    pagination: '.pagination',
+                    loop:true,
+                    autoplay: 2500,
+                    grabCursor: true,
+                    paginationClickable: true
+                });
+            },
+            radios: function(data){
+                var html = '';
+                var radios= document.querySelector('#ref_radios');
+                for(var s in data.radios){
+                    var sel= data.radios[s];
+                    console.log(s,sel)
+                    html += '<div data-href="'+sel.url+'" class="topLinks_item" style="background-image: url('+sel.logo+');">'+sel.title+'</div>';
+                }
+                radios.innerHTML= html;
+            },
+            ref_referrals30: function(data){
+                var tagEle= document.querySelector('#ref_referrals30');
+                ref_tpl.toplist(tagEle, data);
+            }
+        };
+        //数据填充
+        for(var i in data.data.list){
+            var colle= data.data.list[i];
+            switch (colle.type)
+             {
+                case '1_normal':
+                    fillFn.ref_banner(colle);
+                break;
+                case '20_normal':
+                    fillFn.radios(colle);
+                    break;
+                case '19_normal':
+                    fillFn.ref_referrals30(colle);
+                    break;
+             }
+        }
+
+
+    });
 }(window.app);
 

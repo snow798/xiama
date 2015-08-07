@@ -129,6 +129,7 @@ body{
     bottom: 0;
     overflow: hidden;
     z-index: 100;
+    pointer-events: none;
 
     //display: flex;
     transition:  all 100ms;
@@ -166,7 +167,7 @@ body{
         background-size: cover;
         background-repeat: no-repeat;
 
-        -webkit-filter: blur(20px);
+        -webkit-filter: blur(25px);
        // background-clip: padding-box;
         //clip: rect(20px 404px 660px 20px);
       }
@@ -230,11 +231,42 @@ body{
         }
       }
       .myList{
-        background-color: indianred;
+        background-color: transparent;
+        padding-top: 1rem;
+        padding-left: 0.5rem;
+        box-sizing: border-box;
+
+        .mylist_item{
+          width: 95%;
+          height: 1.2rem;
+          position: relative;
+          color: #fff;
+          text-align: left;
+          padding-bottom: 0.5rem;
+          //border-bottom: 1px solid #eee;
+
+
+          .m_title{
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.38rem;
+          }
+          .m_author{
+
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.20rem;
+          }
+          .m_time{
+            position: absolute;
+            right: 0;
+            top: 0.3rem;
+          }
+        }
       }
 
       .album{
-        background-color: aquamarine;
+        background-color: transparent;
       }
 
       .lyrics{
@@ -563,3 +595,261 @@ body{
 .icon-player-pause{
 
 }
+
+
+//主体
+.main-sos{
+  width: 100%;
+  height: 100%;
+
+  .main-sos-head{
+    width: 100%;
+    height: 1rem;
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+  }
+  .sos-head-userPhoto{
+    height: 1rem;
+    width: 1.4rem;
+
+    span{
+      display: block;
+      width: 0.74rem;
+      height: 0.74rem;
+      border-radius: 100%;
+      background-color: transparent;
+      margin: 0 auto;
+      margin-top: 0.12rem;
+      background-image: url(../img/usr100.gif);
+      -webkit-background-size: contain;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+    }
+  }
+  .sos-mid-tip{
+    height: 1rem;
+    line-height: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 0.32rem;
+    font-weight: 600;
+
+    li{
+      flex: 1;
+    }
+  }
+
+  .sos-search{
+    height: 1rem;
+    line-height: 1rem;
+    width: 1.2rem;
+    text-align: center;
+
+    .sos-search{
+      width: 0.5rem;
+      height: 0.5rem;
+      vertical-align: middle;
+      color: #000000;
+    }
+  }
+
+  >ul{
+    list-style: none;
+    width: 22.5rem;
+    height: 100%;
+    color: #000;
+    padding: 0;
+    margin: 0;
+    transform:translate3d(-7.5rem,0,0);
+
+    li{
+      width: 7.5rem;
+      height: 85%;
+      float: left;
+    }
+  }
+
+  .myMusic{
+    background-color: #F07575;
+  }
+  .referrals{
+    background-color: #50484b;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .v_cont{
+      width: 7.5rem;
+      height: 6000px;
+    }
+    /*首页banner*/
+    .ref_banner{
+      width: 7.5rem;
+      height: 3.08rem;
+      position: relative;
+
+      .swiper-container {
+        height: 3.08rem;
+        width: 100%;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .pagination {
+        position: absolute;
+        left: 0;
+        text-align: center;
+        bottom:5px;
+        width: 100%;
+        z-index: 100;
+      }
+      .swiper-pagination-switch {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        background: #d2d1ce;
+        //box-shadow: 0px 1px 2px #555 inset;
+        margin: 0 3px;
+        cursor: pointer;
+      }
+      .swiper-active-switch {
+        background: #fff;
+      }
+
+    }
+    .ref_topLinks{
+      width: 7.5rem;
+      height: 1.70rem;
+      line-height: 2.8rem;
+      background-color: #50484b;
+      display: flex;
+      flex-wrap: nowrap;
+      color: #ffffff;
+      text-align: center;
+
+      .topLinks_item{
+        height: 100%;
+        flex: 1;
+        font-size: 0.30rem;
+        background-repeat: no-repeat;
+        /*background-position: center 20%;
+        -webkit-background-size: 37%;
+        background-size: 37%;*/
+      }
+    }
+
+    .ref_referrals30{
+
+    }
+
+
+
+  }
+
+  .musicPavilion{
+
+  }
+}
+
+
+/*首页专辑展示*/
+.sq_list{
+  width: 7.5rem;
+  height: 6.44rem;
+  background-color: #fff;
+  margin-top: 0.24rem;
+
+  .author{
+    width: 7.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    color: #b2afae;
+  }
+  .title{
+    width: 7.5rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #473f42;
+  }
+
+  .sq_list_cont{
+    width: 7.5rem;
+    height: 4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .item{
+      width: 7.5rem;
+      height: 1rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      box-sizing: border-box;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      margin-bottom: 0.3rem;
+      margin-top: 0.15rem;
+      float: left;
+
+      .album{
+        height: 0.9rem;
+        width: 0.9rem;
+        border-radius: 100%;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-position: center center;
+        padding: 0;
+        margin: 0;
+      }
+      .song{
+        height: 1rem;
+        flex: auto;
+        box-sizing: border-box;
+        padding-left: 0.25rem;
+
+        .song_title{
+          width: 100%;
+          height: 0.5rem;
+          line-height: 0.5rem;
+          font-size: 0.34rem;
+          overflow: hidden;
+        }
+        .song_author{
+          font-size: 0.28rem;
+        }
+      }
+      .more{
+        height: 1rem;
+        line-height: 1rem;
+        width: 1rem;
+        text-align: center;
+
+        .sos-more{
+          width: 0.4rem;
+          height: 0.4rem;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+}
+
+
