@@ -667,7 +667,7 @@ body{
     color: #000;
     padding: 0;
     margin: 0;
-    transform:translate3d(-7.5rem,0,0);
+    //transform:translate3d(-7.5rem,0,0);
 
     li{
       width: 7.5rem;
@@ -687,6 +687,11 @@ body{
     .v_cont{
       width: 7.5rem;
       height: 6000px;
+
+      .flex_box{
+        width: 7.5rem;
+        height: auto;
+      }
     }
     /*首页banner*/
     .ref_banner{
@@ -749,7 +754,7 @@ body{
     }
 
     .ref_referrals30{
-
+      height: 6.1rem;
     }
 
 
@@ -765,16 +770,16 @@ body{
 /*首页专辑展示*/
 .sq_list{
   width: 7.5rem;
-  height: 6.44rem;
+  height: 5.44rem;
   background-color: #fff;
-  margin-top: 0.24rem;
+  margin-top: 0.36rem;
+  padding-top: 0.5rem;
 
   .author{
     width: 7.5rem;
     height: 0.5rem;
     line-height: 0.5rem;
     text-align: center;
-    padding-top: 0.5rem;
     color: #b2afae;
   }
   .title{
@@ -809,6 +814,7 @@ body{
       .album{
         height: 0.9rem;
         width: 0.9rem;
+        min-width: 0.9rem;
         border-radius: 100%;
         background-color: transparent;
         background-repeat: no-repeat;
@@ -823,22 +829,32 @@ body{
         flex: auto;
         box-sizing: border-box;
         padding-left: 0.25rem;
+        overflow: hidden;
 
         .song_title{
           width: 100%;
           height: 0.5rem;
           line-height: 0.5rem;
           font-size: 0.34rem;
-          overflow: hidden;
+          white-space:nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
         }
         .song_author{
+          width: 100%;
+          height: 0.5rem;
+          line-height: 0.5rem;
           font-size: 0.28rem;
+          white-space:nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
         }
       }
       .more{
         height: 1rem;
         line-height: 1rem;
         width: 1rem;
+        min-width: 1rem;
         text-align: center;
 
         .sos-more{
@@ -851,5 +867,497 @@ body{
   }
 
 }
+
+//新碟首发
+.sq_newMusic{
+  width: 7.5rem;
+  height: 8.5rem;
+  background-color: #fff;
+  margin-top: 0.36rem;
+
+  .sq_newMusic_title{
+    width: 7.5rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.4rem;
+    padding-top: 0.5rem;
+
+  }
+
+  .sq_newMusic_cont{
+    list-style: none;
+    width: 7.5rem;
+
+    padding: 0;
+    padding-top: 0.3rem;
+
+
+    li{
+      width: 2rem;
+      height: 2.6rem;
+      float: left;
+      background-color: transparent;
+      margin-left: 0.36rem;
+      margin-bottom: 0.6rem;
+      box-sizing: border-box;
+      padding-left: 0.1rem;
+
+      .cover{
+        width: 1.96rem;
+        height: 1.8rem;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+      .title{
+        width: 100%;
+        height: 0.7rem;
+        line-height: 0.9rem;
+        color: #332a2d;
+        font-size: 0.32rem;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+
+      }
+      .author{
+        width: 100%;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        color: #b8b6b5;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    }
+  }
+}
+
+//活动专题
+.operation{
+  width: 7.5rem;
+  height: 5.28rem;
+  background-color: #fff;
+  margin-top: 0.36rem;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: #fff;
+
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    float: right;
+    text-align: center;
+  }
+  .title{
+    width: 100%;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .content{
+    width: 80%;
+    line-height: 0.47rem;
+    margin: 0 auto;
+    height: 3rem;
+    text-align: center;
+    font-size: 0.35rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+//单一 收藏
+.sq_mv{
+  width: 7.5rem;
+  height: 7.5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 0.34rem;
+
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    position: absolute;
+    line-height: 0.7rem;
+    top: 0.2rem;
+    right: 0;
+    text-align: center;
+  }
+  .mask_play{
+    width: 7.5rem;
+    height: 4.76rem;
+    line-height: 4.76rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    pointer-events: none;
+
+    svg{
+      width: 1.5rem;
+      height: 1.5rem;
+      vertical-align: middle;
+      opacity: 0.5;
+    }
+  }
+  .itemBody{
+    width: 7.5rem;
+    height: 4.76rem;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+
+    background-color: #f60;
+  }
+  .title{
+    width: 100%;
+    height: 1.4rem;
+    line-height: 1.8rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.45rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .author{
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.sq_rec_song{
+  width: 7.5rem;
+  height: 6.5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 0.34rem;
+
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    position: absolute;
+    line-height: 0.7rem;
+    top: 0.2rem;
+    right: 0;
+    text-align: center;
+  }
+  .title{
+    width: 90%;
+    height: 2.2rem;
+    line-height: 2.4rem;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    font-size: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b2afae;
+  }
+  .cover{
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0 auto;
+    border-radius: 100%;
+    background-color: #4B946A;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+  .author{
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pinyin{
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.4rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .more{
+    height: 1rem;
+    line-height: 1rem;
+    width: 1rem;
+    min-width: 1rem;
+    text-align: center;
+    float: right;
+
+    .sos-more{
+      width: 0.4rem;
+      height: 0.4rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sq_featured{
+  width: 7.5rem;
+  height: 10rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 0.34rem;
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    position: absolute;
+    line-height: 0.7rem;
+    top: 0.2rem;
+    right: 0;
+    text-align: center;
+  }
+  .cover{
+    width: 7.5rem;
+    height: 4.8rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .title{
+    width: 90%;
+    height: 1.4rem;
+    line-height: 1.8rem;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    font-size: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .title_sub{
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b2afae;
+  }
+  .tag{
+    width: 0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin: 0 auto;
+    background-image: url(../img/recommend_icon_colon.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    margin-top: 0.4rem;
+  }
+  .content{
+    width: 80%;
+    height: 1rem;
+    line-height: 0.5rem;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+    font-size: 0.35rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #372d31;
+    margin-top: 0.5rem;
+  }
+}
+
+.sq_rec_song2{
+  width: 7.5rem;
+  height: 6.5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 0.34rem;
+
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    position: absolute;
+    line-height: 0.7rem;
+    top: 0.2rem;
+    right: 0;
+    text-align: center;
+  }
+  .title{
+    width: 90%;
+    height: 2.2rem;
+    line-height: 2.6rem;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    font-size: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b2afae;
+  }
+  .cover{
+    width: 2.26rem;
+    height: 2rem;
+    margin: 0 auto;
+    border: 1px solid #888888;
+    //box-shadow: 0.07rem 0.07rem 0.05rem #888888;
+    background-color: #4B946A;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+  }
+  .author{
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pinyin{
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.4rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .more{
+    height: 1rem;
+    line-height: 1rem;
+    width: 1rem;
+    min-width: 1rem;
+    text-align: center;
+    float: right;
+
+    .sos-more{
+      width: 0.4rem;
+      height: 0.4rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sq_featured2{
+  width: 7.5rem;
+  height: 11rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 0.34rem;
+  .view{
+    width: 1.3rem;
+    height: 0.7rem;
+    position: absolute;
+    line-height: 0.7rem;
+    top: 0.2rem;
+    right: 0;
+    text-align: center;
+  }
+  .cover{
+    width: 7.5rem;
+    height: 4.8rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .title{
+    width: 90%;
+    height: 1.4rem;
+    line-height: 1.8rem;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    font-size: 0.35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b2afae;
+
+  }
+  .title_sub{
+    width: 90%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    font-size: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .author_name{
+    width: 90%;
+    height: 0.7rem;
+    line-height: 0.8rem;
+    margin: 0 auto;
+    margin-top: 0.1rem;
+    text-align: center;
+    clear: both;
+    font-size: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tag{
+    width: 0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin: 0 auto;
+    background-image: url(../img/recommend_icon_colon.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    margin-top: 0.4rem;
+  }
+  .content{
+    width: 80%;
+    height: 1rem;
+    line-height: 0.5rem;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+    font-size: 0.35rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #372d31;
+    margin-top: 0.5rem;
+  }
+}
+
+
+
+
 
 
