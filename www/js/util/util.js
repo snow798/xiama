@@ -35,7 +35,7 @@ function toggleClass( elem, c ) {
     fn( elem, c );
 }
 
-
+//水平滑动分页
 function smoothness(obj,initPage, parentsWidth){
     if(typeof obj !== 'string') return false;
     var currentObj= document.querySelector(obj);
@@ -56,12 +56,13 @@ function smoothness(obj,initPage, parentsWidth){
     currentObj.style['-webkit-transform']= 'translate3d('+this.leftOffset+'px,0,0) translateZ(0)';
     currentObj.style['-webkit-transition-timing-function']= 'ease-out';
 
-
     currentObj_ev.on('panstart', function(ev){
+        console.log(55555555555555555)
         currentObj.style['-webkit-transition-duration']= '0s';
         base.param.currentMovePage= base.currentPage;
         base.param.initOffset= base.leftOffset;
         base.param.started= 1;
+
     });
     currentObj_ev.on('panmove', function(ev){
         base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
@@ -78,14 +79,14 @@ function smoothness(obj,initPage, parentsWidth){
         base.param.started= 0;
         //归位
         if(ev.offsetDirection== 2){
-            if(base.param.leftMoveOffset> base.param.initOffset-(-parentsW/3*2)){
+            if(base.param.leftMoveOffset> base.param.initOffset-(-parentsW/5*3)){
                 base.param.leftMoveOffset= base.param.initOffset+parentsW;
                 base.leftOffset= base.param.leftMoveOffset;
             }else{
                 base.param.leftMoveOffset= base.param.initOffset;
             }
         }else if(ev.offsetDirection == 4){
-            if(base.param.leftMoveOffset< base.param.initOffset-parentsW/3*2){
+            if(base.param.leftMoveOffset< base.param.initOffset-parentsW/5*3){
                 base.param.leftMoveOffset= base.param.initOffset-parentsW;
                 base.leftOffset= base.param.leftMoveOffset;
             }else{

@@ -582,12 +582,22 @@
               html += '</div></div><div class="pagination"></div>';
               ref_banner.innerHTML= html;
               ref_cont.appendChild(ref_banner);
+              var mainContentSmoothness= document.querySelector('.sos-show');
               var banner = new Swiper('.swiper-container',{
                   pagination: '.pagination',
                   loop:true,
                   autoplay: 2500,
                   grabCursor: true,
-                  paginationClickable: true
+                  paginationClickable: true,
+                  onSlideTouch: function(ev){
+                      console.log(ev)
+                      mainContentSmoothness.style.pointerEvents= 'none';
+                      return false
+                      //ev.stopPropagation();
+                  },
+                  onTouchEnd: function(ev){
+                      mainContentSmoothness.style.pointerEvents= 'auto';
+                  }
               });
           },
           radios: function(data){
