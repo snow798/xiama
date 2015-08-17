@@ -538,10 +538,8 @@
 
 //首页中间 referrals模块
 !function(app){
-    util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438914458351&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=1&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Acf%3A0a%3A70&proxy=0&api_sig=85d03053806d90e21faa3bc75aaccb5e&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
-        bus_play.put('$ref_dataed', JSON.parse(data));
-    });
-
+    //水平滑动
+    smoothness('.sos-show', 1);
     var flex_container= document.querySelector('.referrals');
     var flex_cont= document.querySelector('#ref_content');
     var flex_container_height= flex_container.offsetHeight;
@@ -567,7 +565,7 @@
 
 
     bus_play.subscribe('$ref_dataed', function(ev, data){
-        console.log(ev, data);
+        console.log(77777, data);
         var ref_cont= document.querySelector('#ref_content');
         //类型模板
         ref_tpl={
@@ -581,13 +579,26 @@
               }
               html += '</div></div><div class="pagination"></div>';
               ref_banner.innerHTML= html;
+              ref_cont.innerHTML= '';
               ref_cont.appendChild(ref_banner);
+              var mainContentSmoothness= document.querySelector('.sos-show');
               var banner = new Swiper('.swiper-container',{
                   pagination: '.pagination',
                   loop:true,
                   autoplay: 2500,
                   grabCursor: true,
-                  paginationClickable: true
+                  paginationClickable: true,
+                  onSlideTouch: function(ev){
+                      /*console.log(ev)
+                      ev.stopPropagation;
+                      ev.preventDefault;
+                      mainContentSmoothness.style.pointerEvents= 'none';
+                      return false
+                      //ev.stopPropagation();*/
+                  },
+                  onTouchEnd: function(ev){
+                      /*mainContentSmoothness.style.pointerEvents= 'auto';*/
+                  }
               });
           },
           radios: function(data){
@@ -603,7 +614,6 @@
           },
           musicTopList: function( data){  //今日歌曲推介类型
               var html= '';
-              console.log(333, data.user_name);
               var topEle= document.createElement('div');
               topEle.className= 'sq_list';
 
@@ -795,7 +805,39 @@
 
     });
 
-    smoothness('.sos-show', 1);
 
+    //缓存数据载入
+    if(!window.localStorage){
+        console.log('no localStorage')
+    }
+    function getBannerData(){
+        util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438914458351&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=1&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Acf%3A0a%3A70&proxy=0&api_sig=85d03053806d90e21faa3bc75aaccb5e&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
+            data= JSON.parse(data);
+            data._time= new Date().getTime();
+            localStorage.setItem('home_one', JSON.stringify(data));
+            bus_play.put('$ref_dataed', data);
+        });
+    }
+    var lo_data= localStorage.getItem('home_one');
+    if(!lo_data){   //为空时
+        getBannerData();
+    }else{
+        lo_data= JSON.parse(localStorage.getItem('home_one'));
+        bus_play.put('$ref_dataed', lo_data);
+        if(new Date().getTime()> lo_data._time+2*60*1000){     //本地缓存是否过期过期更新 过期时间2s
+            getBannerData();
+        }
+    }
+
+
+}(window.app);
+
+//弹出层相关
+!function(){
+    var popup= new Popup('.popup', '.main-sos');
+    var t= document.querySelector('.main-sos');
+    t.addEventListener('click', function(){
+        popup.show()
+    }, false);
 }(window.app);
 

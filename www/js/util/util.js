@@ -57,14 +57,14 @@ function smoothness(obj,initPage, parentsWidth){
     currentObj.style['-webkit-transition-timing-function']= 'ease-out';
 
     currentObj_ev.on('panstart', function(ev){
-        console.log(55555555555555555)
+
         currentObj.style['-webkit-transition-duration']= '0s';
         base.param.currentMovePage= base.currentPage;
         base.param.initOffset= base.leftOffset;
         base.param.started= 1;
-
     });
     currentObj_ev.on('panmove', function(ev){
+        if(!(ev.offsetDirection== 2 || ev.offsetDirection == 4)) return false;
         base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
         if(base.param.leftMoveOffset>0 || base.param.leftMoveOffset<-parentsW*2){   //是否超出边界
             base.param.started= -1;
@@ -99,6 +99,62 @@ function smoothness(obj,initPage, parentsWidth){
         currentObj.style['-webkit-transform']= 'translate3d('+base.param.leftMoveOffset+'px,0,0) translateZ(0)';
     });
 }
+
+//弹出层
+function Popup(obj, follow){
+    if(typeof obj !== 'string') return false;
+    if(!window['Hammer']){console.log('no Hammer plus!'); return false;}
+    var base= this;
+    follow= typeof follow == 'string' ? follow: false;
+    this.obj= document.querySelector(obj);
+    this.close_btn= this.obj.querySelector('.popup-title');
+    var parent= this.obj.parentNode;
+    var parentsW= parent.offsetWidth? parent.offsetWidth: document.documentElement.clientWidth;
+
+    console.log(42,parentsW);
+
+    this.obj_ev= new Hammer(this.obj);
+    this.param={
+        width: parentsW,
+        offsetWidth: parentsW,
+        leftMoveOffset:0,
+        follow: follow
+    };
+    this.obj.style['-webkit-transform']= 'translate3d('+this.param.offsetWidth+'px,0,0) translateZ(0)';
+    /*obj_ev.on('panstart', function(ev){
+
+    });
+    obj_ev.on('panmove', function(ev){
+        base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
+        obj.style['-webkit-transform']= 'translate3d('+base.param.leftMoveOffset+'px,0,0) translateZ(0)';
+    });
+    obj_ev.on('panend', function(ev){
+
+    })*/
+    this.close_ev= new Hammer(this.close_btn);
+    this.close_ev.on('tap', function(ev){
+        base.close();
+    })
+}
+Popup.prototype.show= function(){
+    console.log(66,this.param.follow);
+    this.obj.style['-webkit-transition-duration']= '0.4s';
+    this.obj.style['-webkit-transform']= 'translate3d(0px,0,0) translateZ(0)';
+    if(this.param.follow){
+        var obj_see= document.querySelector(this.param.follow);
+        obj_see.style['-webkit-transition-duration']= '0.4s';
+        obj_see.style['-webkit-transform']= 'translate3d(-100px,0,0) translateZ(0)';
+    }
+};
+Popup.prototype.close= function(){
+    this.obj.style['-webkit-transition-duration']= '0.4s';
+    this.obj.style['-webkit-transform']= 'translate3d('+this.param.offsetWidth+'px,0,0) translateZ(0)';
+    if(this.param.follow){
+        var obj_see= document.querySelector(this.param.follow);
+        obj_see.style['-webkit-transition-duration']= '0.4s';
+        obj_see.style['-webkit-transform']= 'translate3d(0px,0,0) translateZ(0)';
+    }
+};
 
 
 
