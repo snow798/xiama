@@ -835,9 +835,17 @@
 //弹出层相关
 !function(){
     var popup= new Popup('.popup', '.main-sos');
-    var t= document.querySelector('.main-sos');
-    t.addEventListener('click', function(){
+    var glob_event= document.querySelector('.main-sos');
+    var glob_ev= new Hammer(glob_event);
+    glob_ev.on('tap', function(ev){
+        var tag= ev.target;
+        var src= tag.getAttribute('data-href');
+        if(src){
+            popup.show(src);
+        }
+    });
+    /*t.addEventListener('click', function(){
         popup.show()
-    }, false);
+    }, false);*/
 }(window.app);
 
