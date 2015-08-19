@@ -2,6 +2,7 @@
  * Created by Administrator on 2015/7/3.
  */
 
+
 function classReg( className ) {
     return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
 }
@@ -140,7 +141,10 @@ function Popup(obj, follow){
         follow= false;
     }
     this.obj= document.querySelector(obj);
-    this.close_btn= this.obj.querySelector('.popup-title');
+    this.close_btn= this.obj.querySelector('.popup-return');
+    this.head= this.obj.querySelector('.popup-title');
+    this.headHeight= this.head.offsetHeight;
+    this.content= this.obj.querySelector('.popup-content');
     var parent= this.obj.parentNode;
     var parentsW= parent.offsetWidth? parent.offsetWidth: document.documentElement.clientWidth;
 
@@ -163,13 +167,15 @@ function Popup(obj, follow){
     });
     this.obj_ev.on('panmove', function(ev){
             base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
+            if(base.param.leftMoveOffset<0) return false;
             base.obj.style['-webkit-transform']= 'translate3d('+base.param.leftMoveOffset+'px,0,0) translateZ(0)';
         //更随元素缓冲动画
         if(base.param.follow){
             base.param.follow.style['-webkit-transition-duration']= '0s';
             var offend= parseInt(base.param.followOffLeft)+ parseInt(ev.deltaX);
             if(offend>0) return false;
-            base.param.follow.style['-webkit-transform']= 'translate3d('+offend/2+'px,0,0) translateZ(0)';
+            var part= Math.abs(offend/base.param.followOffEnd);
+            base.param.follow.style['-webkit-transform']= 'translate3d('+offend*part+'px,0,0) translateZ(0)';
         }
     });
     this.obj_ev.on('panend', function(ev){
@@ -200,11 +206,12 @@ Popup.prototype.animation= function(){
         this.param.follow.style['-webkit-transform']= 'translate3d('+this.param.followOffLeft+'px,0,0) translateZ(0)';
     }
 };
-Popup.prototype.show= function(src){
-    console.log(66,this.param.follow, src);
+Popup.prototype.show= function(src, obj){
     this.param.offsetWidth= 0;
     this.param.followOffLeft= this.param.followOffEnd;
     this.animation();
+    obj.call(this, src);
+
 };
 Popup.prototype.close= function(){
     this.param.offsetWidth= this.param.width;
@@ -220,9 +227,9 @@ util={
     hasClass: hasClass,
     getStyle: function (element,attr) {
         if(typeof window.getComputedStyle!='undefined'){
-            return window.getComputedStyle(element,null)[attr];
+            return parseFloat(window.getComputedStyle(element,null)[attr]);
         }else if(element.currentStyle){
-            return element.currentStyle[attr];
+            return parseFloat(element.currentStyle[attr]);
         }
     },
     extend: function(destination, source) {

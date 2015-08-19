@@ -575,7 +575,7 @@
               ref_banner.className= 'ref_banner';
               html += '<div class="swiper-container"><div class="swiper-wrapper">';
               for(var s in data.banner){
-                  html += '<div class="swiper-slide" data-title="'+data.banner[s].title+'" data-href="'+data.banner[s].url+'"> <img src="'+data.banner[s].logo+'"> </div>';
+                  html += '<div class="swiper-slide" > <img src="'+data.banner[s].logo+'" data-title="'+data.banner[s].title+'" data-href="'+data.banner[s].url+'"> </div>';
               }
               html += '</div></div><div class="pagination"></div>';
               ref_banner.innerHTML= html;
@@ -837,13 +837,32 @@
     var popup= new Popup('.popup', '.main-sos');
     var glob_event= document.querySelector('.main-sos');
     var glob_ev= new Hammer(glob_event);
+
+    var popupHandle={
+        iframe: function(tag){
+            this.obj.style['z-index']= '150';
+            var iframe= document.createElement('iframe');
+            iframe.src= tag.getAttribute('data-href');
+            iframe.frameborder= '0';
+            iframe.style.height= app.h - this.headHeight + 3 +'px';
+            this.content.innerHTML= '';
+            this.content.appendChild(iframe);
+            console.log(7788, this, tag)
+        }
+    };
     glob_ev.on('tap', function(ev){
         var tag= ev.target;
         var src= tag.getAttribute('data-href');
         if(src){
-            popup.show(src);
+            if(src.indexOf('http') == 0){
+                popup.show(tag, popupHandle.iframe);
+            }
+            //popup.show(tag);
         }
     });
+
+
+
     /*t.addEventListener('click', function(){
         popup.show()
     }, false);*/
