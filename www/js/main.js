@@ -672,7 +672,7 @@
                     views1= parseFloat(views1).toFixed(2);
                     views= views1+ '万';
                 }
-                html= '<div class="view">'+views+'</div><div class="title">'+data.title+'</div><div class="content">'+data.sub_title+'</div>';
+                html= '<div class="view">'+views+'</div><div data-href="'+ data.url+'" class="title">'+data.title+'</div><div class="content"  data-href="'+ data.url+'" >'+data.sub_title+'</div>';
                 action.innerHTML= html;
                 action.style.backgroundImage= 'url('+data.logo+')';
                 action.setAttribute('data-href', data.url);

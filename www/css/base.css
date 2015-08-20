@@ -1581,7 +1581,7 @@ body {
   z-index: 50;
   display: flex;
   flex-direction: column;
-  background-color: transparent;
+  background-color: #fff;
 }
 .popup .popup-title {
   width: 7.5rem;
@@ -1613,6 +1613,9 @@ body {
 .popup .popup-content > iframe {
   width: 100%;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 .po-std {
   width: 100%;
