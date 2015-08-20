@@ -6,18 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8f46cad-1e45-4a1d-b382-9c5d3ec5be85" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\xiama\platforms\android\assets\www\data\Kenny G - Going Home.mp3" afterPath="" />
-      <change type="DELETED" beforePath="F:\xiama\www\data\Kenny G - Going Home.mp3" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/base.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/base.css" afterPath="$PROJECT_DIR$/www/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/base.less" afterPath="$PROJECT_DIR$/www/css/base.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/main.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/main.js" afterPath="$PROJECT_DIR$/www/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xiama.iws" />
@@ -42,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6923075" vertical-offset="340" max-vertical-offset="1200">
-              <caret line="327" column="45" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.35007384" vertical-offset="523" max-vertical-offset="1200">
+              <caret line="337" column="98" selection-start-line="337" selection-start-column="8" selection-end-line="337" selection-end-column="101" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -88,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24368499" vertical-offset="11196" max-vertical-offset="15600">
-              <caret line="678" column="45" selection-start-line="678" selection-start-column="45" selection-end-line="678" selection-end-column="45" />
+            <state vertical-scroll-proportion="17.2" vertical-offset="11676" max-vertical-offset="15600">
+              <caret line="705" column="177" selection-start-line="705" selection-start-column="177" selection-end-line="705" selection-end-column="177" />
               <folding>
                 <element signature="e#10289#13358#0" expanded="false" />
                 <element signature="e#14758#18110#0" expanded="false" />
@@ -164,9 +158,9 @@
         <option value="D:/TFS/website2.0/ChangTouNew/static/default/dev/home/main.js" />
         <option value="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" />
         <option value="$PROJECT_DIR$/www/js/util/util.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/css/base.less" />
         <option value="$PROJECT_DIR$/www/js/main.js" />
+        <option value="$PROJECT_DIR$/www/index.html" />
       </list>
     </option>
   </component>
@@ -424,7 +418,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -933,10 +927,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.73077" vertical-offset="24767" max-vertical-offset="25620">
+          <caret line="1788" column="8" selection-start-line="1788" selection-start-column="8" selection-end-line="1788" selection-end-column="8" />
+          <folding>
+            <element signature="e#5259#5999#0" expanded="false" />
+            <element signature="e#6076#8483#0" expanded="false" />
+            <element signature="e#13007#13403#0" expanded="false" />
+            <element signature="e#13418#13677#0" expanded="false" />
+            <element signature="e#14148#20510#0" expanded="false" />
+            <element signature="e#14381#16541#0" expanded="false" />
+            <element signature="e#16554#17300#0" expanded="false" />
+            <element signature="e#17761#18137#0" expanded="false" />
+            <element signature="e#22278#23667#0" expanded="false" />
+            <element signature="e#23685#25427#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.2" vertical-offset="11676" max-vertical-offset="15600">
+          <caret line="705" column="177" selection-start-line="705" selection-start-column="177" selection-end-line="705" selection-end-column="177" />
+          <folding>
+            <element signature="e#10289#13358#0" expanded="false" />
+            <element signature="e#14758#18110#0" expanded="false" />
+            <marker date="1440033697923" expanded="true" signature="6709:6717" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="7240:7248" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="7845:7854" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="26703:26725" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="27687:27709" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="30208:30229" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="31319:31341" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="32399:32420" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="33508:33530" placeholder="..." />
+            <marker date="1440033697923" expanded="true" signature="34532:34553" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6923075" vertical-offset="340" max-vertical-offset="1200">
-          <caret line="327" column="45" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.35007384" vertical-offset="523" max-vertical-offset="1200">
+          <caret line="337" column="98" selection-start-line="337" selection-start-column="8" selection-end-line="337" selection-end-column="101" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -963,46 +997,6 @@
             <element signature="n#style#0;n#div#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.73077" vertical-offset="24767" max-vertical-offset="25620">
-          <caret line="1788" column="8" selection-start-line="1788" selection-start-column="8" selection-end-line="1788" selection-end-column="8" />
-          <folding>
-            <element signature="e#5259#5999#0" expanded="false" />
-            <element signature="e#6076#8483#0" expanded="false" />
-            <element signature="e#13007#13403#0" expanded="false" />
-            <element signature="e#13418#13677#0" expanded="false" />
-            <element signature="e#14148#20510#0" expanded="false" />
-            <element signature="e#14381#16541#0" expanded="false" />
-            <element signature="e#16554#17300#0" expanded="false" />
-            <element signature="e#17761#18137#0" expanded="false" />
-            <element signature="e#22278#23667#0" expanded="false" />
-            <element signature="e#23685#25427#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24368499" vertical-offset="11196" max-vertical-offset="15600">
-          <caret line="678" column="45" selection-start-line="678" selection-start-column="45" selection-end-line="678" selection-end-column="45" />
-          <folding>
-            <element signature="e#10289#13358#0" expanded="false" />
-            <element signature="e#14758#18110#0" expanded="false" />
-            <marker date="1440033697923" expanded="true" signature="6709:6717" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="7240:7248" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="7845:7854" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="26703:26725" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="27687:27709" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="30208:30229" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="31319:31341" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="32399:32420" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="33508:33530" placeholder="..." />
-            <marker date="1440033697923" expanded="true" signature="34532:34553" placeholder="..." />
           </folding>
         </state>
       </provider>
