@@ -601,6 +601,7 @@ body{
 .main-sos{
   width: 100%;
   height: 100%;
+  background-color: #eee;
 
   .main-sos-head{
     width: 100%;
@@ -919,8 +920,9 @@ body{
   }
   .referrals{
     background-color: #50484b;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
+    transform: translate3d(0px, 0px, 0px);
 
     .v_cont{
       width: 7.5rem;
@@ -1792,6 +1794,209 @@ body{
   width: 100%;
   height: 5000px;
   background-color: #666666;
+}
+.po1{
+  width: 7.5rem;
+
+  .po-std-head{
+    width: 100%;
+    height: 6.6rem;
+  }
+}
+
+.popup-album{
+  position: absolute;
+  top: 0;
+  left: 0;
+  .popup-title{
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .popup-content{
+    .po1{
+      .po-std-head{
+        width: 100%;
+        height: 6.6rem;
+        padding-top: 1.12rem;
+        box-sizing: border-box;
+        background-color: #ff6600;
+        .cover{
+          width: 2.84rem;
+          height: 2.9rem;
+          margin: 0 auto;
+          background-color: #fff;
+        }
+        .title{
+          width: 60%;
+          margin: 10px auto;
+          text-align: center;
+          color: #fff;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .play_btn{
+          width: 100%;
+          height: 1.4rem;
+          display: flex;
+          .subscribe{
+            flex: 152;
+            height: auto;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            img{
+              width: 1rem;
+              display: block;
+              margin: 0.35rem auto 3px;
+            }
+          }
+          .play_k{
+            flex: 71;
+            height: auto;
+            img{
+              width: 100%;
+            }
+          }
+          .Leave{
+            flex: 152;
+            height: auto;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            img{
+              width: 0.6rem;
+              display: block;
+              margin: 0.35rem auto 3px;
+            }
+          }
+        }
+      }
+      .po-std-content{
+        background-color: #fff;
+        width: 100%;
+        height: auto;
+        .k-sub{
+          position: relative;
+          height: 0.92rem;
+          line-height: 0.92rem;
+          border-bottom: 1px solid #eee;
+          .kou{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 3.5rem;
+            height: 0.92rem;
+            display: block;
+            text-align: right;
+          }
+          span{
+            margin: 0 5px;
+            color: #cac8c7;
+          }
+          .all_down{
+
+          }
+          .all_down::before{
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-right: 5px;
+            vertical-align: middle;
+            display: inline-block;
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-image: url(../img/detail_btn_download_normal.png);
+          }
+          .add_song{
+            margin-right: 0.25rem;
+          }
+          .add_song::before{
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-right: 5px;
+            margin-left: 5px;
+            vertical-align: middle;
+            display: inline-block;
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-image: url(../img/detail_btn_more_normal.png);
+          }
+        }
+        .k-content{
+          list-style: none;
+          height: auto;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+    }
+  }
+}
+
+.po1-item{
+  width: 100%;
+  height: 1.4rem;
+  display: flex;
+  .cover{
+    width: 1.2rem;
+    min-height: 1.2rem;
+    height: 1.4rem;
+
+    img{
+      background-color: #f60;
+      width: 0.72rem;
+      height: 0.72rem;
+      border: 0;
+      outline: none;
+      margin: 0.3rem 0 0 0.2rem;
+    }
+  }
+  .title{
+    flex: 1;
+    height: 1.4rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    .a_title{
+       width: 80%;
+       position: relative;
+       font-size: 16px;
+       top: 0.23rem;
+       left: 0.1rem;
+       overflow: hidden;
+       white-space: normal;
+       text-overflow: ellipsis;
+     }
+    .a_sub{
+      width: 80%;
+      position: relative;
+      font-size: 12px;
+      top: 0.3rem;
+      left: 0.1rem;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      color: #bbb9b8;
+    }
+    .more{
+      position: absolute;
+      right: 0.35rem;
+      top: 0.65rem;
+      width: 0.4rem;
+      height: 0.1rem;
+      background-repeat: no-repeat;
+      background-image: url(../img/global_icon_more_normal.png);
+      -webkit-background-size: contain;
+      background-size: contain;
+
+    }
+  }
 }
 
 

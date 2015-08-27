@@ -18,6 +18,8 @@ define(['../lib/hammer.min'], function(Hammer){
         this.head= this.obj.querySelector('.popup-title');
         this.headHeight= this.head.offsetHeight;
         this.content= this.obj.querySelector('.popup-content');
+        this.i= 0;
+        this.s= 0;
         var parent= this.obj.parentNode;
         var parentsW= parent.offsetWidth? parent.offsetWidth: document.documentElement.clientWidth;
 
@@ -30,26 +32,28 @@ define(['../lib/hammer.min'], function(Hammer){
 
             initOffset: 0,
             leftMoveOffset: 0,
-            follow: follow,
+            follow: follow,   //跟随滚动元素
             followOffLeft: 0,
-            followOffEnd: -200
+            followOffEnd: -100
         };
         this.obj.style.opacity= 1;
         this.obj.style['-webkit-transform']= 'translate3d('+this.param.offsetWidth+'px,0,0) translateZ(0)';
         this.obj_ev.on('panstart', function(ev){
+            base.i= 0;
+            base.s= 0;
             base.obj.style['-webkit-transition-duration']= '0s';
         });
         this.obj_ev.on('panmove', function(ev){
+            //console.log(ev);
             base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
             if(base.param.leftMoveOffset<0) return false;
             base.obj.style['-webkit-transform']= 'translate3d('+base.param.leftMoveOffset+'px,0,0) translateZ(0)';
+            ++base.i;
             //更随元素缓冲动画
             if(base.param.follow){
                 base.param.follow.style['-webkit-transition-duration']= '0s';
-                var offend= parseInt(base.param.followOffLeft)+ parseInt(ev.deltaX);
-                if(offend>0) return false;
-                var part= Math.abs(offend/base.param.followOffEnd);
-                base.param.follow.style['-webkit-transform']= 'translate3d('+offend*part+'px,0,0) translateZ(0)';
+                base.s= (base.param.leftMoveOffset/base.param.width)*Math.abs(base.param.followOffEnd)+base.param.followOffEnd;
+                base.param.follow.style['-webkit-transform']= 'translate3d('+base.s+'px,0,0) translateZ(0)';
             }
         });
         this.obj_ev.on('panend', function(ev){
@@ -85,6 +89,7 @@ define(['../lib/hammer.min'], function(Hammer){
         this.param.followOffLeft= this.param.followOffEnd;
         this.animation();
         obj.call(this, src);
+
 
     };
     Popup.prototype.close= function(){

@@ -86,7 +86,7 @@ define(['smoothness'], function(smoothness){
                     if(data.user_name){
                         html += '<div class="author">'+data.user_name+'</div>';
                     }
-                    html += '<div class="title">'+data.title+'</div><ul class="sq_list_cont">';
+                    html += '<div class="title" data-popupType="album" data-href="'+data.source_url+'">'+data.title+'</div><ul class="sq_list_cont">';
                     for(var s in data.songs){
                         var sel= data.songs[s];
                         html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
