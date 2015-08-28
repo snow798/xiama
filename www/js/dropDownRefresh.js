@@ -7,9 +7,14 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
         isAnimate: true,
         animateContentStyle: false,
         startOff: 0,
-        topOff: 0,
-        currentOff: 0
+        topOffset: -30,
+        currentOff: 0,
+        scrollObj: '.referrals',
+        currentSite: 0,
+        bufferCoefficient: 0.3,    //缓冲系数
+        status: 0
     };
+    config.currentSite= config.topOffset;   //起始位置
     var parentsH= document.documentElement.clientHeight;
     var defaultStyle= function(o){
         o.style.width= '100%';
@@ -32,25 +37,47 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
             config.obj.insertBefore(topAm, config.obj.childNodes[0]);
             config.obj.style['-webkit-transform']= 'translate3d(0px, -30px, 0px)';
         }
-
+        var touchSlide= function(ev){
+            var currentY= ev.deltaY;
+            config.currentOff = config.currentSite+ currentY;
+            config.obj.style['-webkit-transform']= 'translate3d(0px, '+config.currentOff+'px, 0px)';
+            config.status= 1;
+        };
+        var downRefresh= function(ev){
+            var currentY= ev.deltaY;
+            currentY= parentsH*(currentY/parentsH*config.bufferCoefficient);
+            config.obj.style['-webkit-transform']= 'translate3d(0px, '+currentY+'px, 0px)';
+            config.status= 0;
+        };
         var touch= Hammer(config.obj);
+        touch.get('pan').set({ direction: Hammer.DIRECTION_ALL });
         touch.on('panstart', function(ev){
-            console.log(ev);
-            config.obj.style['-webkit-transition-duration']= '0s';
+            config.obj.style['-webkit-transition']= '0s cubic-bezier(0.333333, 0.666667, 0.666667, 1) 0s';
             config.startOff= ev.changedPointers[0].clientY;
         });
-        touch.on('panmove', function(ev){
-            var currentY= ev.changedPointers[0].clientY;
-            config.currentOff= currentY - config.startOff;
-            config.obj.style['-webkit-transform']= 'translate3d(0px, '+config.currentOff+'px, 0px)';
-
-           // console.log(ev.changedPointers[0].target)
+        touch.on('pandown', function(ev){
+            if(config.currentSite >= config.topOffset){
+                downRefresh(ev);    //刷新
+            }else{
+                touchSlide(ev);     //滑动
+            }
+        });
+        touch.on('panup', function(ev){
+            touchSlide(ev);
         });
         touch.on('panend', function(ev){
-            config.obj.style['-webkit-transition-duration']= '0.3s';
-            config.obj.style['-webkit-transform']= 'translate3d(0px,-30px,0) translateZ(0)';
+            if(!config.status){
+                config.obj.style['-webkit-transition-duration']= '0.3s';
+                config.obj.style['-webkit-transform']= 'translate3d(0px,-30px,0) translateZ(0)';
+                config.currentSite= config.topOffset;
+            }else{
+                var ve= ev.velocityY;
+                config.currentSite= config.currentOff-(500*ve);
+                if(config.currentSite> config.topOffset) config.currentSite= config.topOffset;
+                config.obj.style['-webkit-transition']= '0.75s cubic-bezier(0.333333, 0.666667, 0.666667, 1) 0s';
+                config.obj.style['-webkit-transform']= 'translate3d(0px, '+config.currentSite+'px, 0px)';
+            }
         });
-        console.log(config)
     };
     return {
         init: init

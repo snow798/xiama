@@ -110,7 +110,7 @@ define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/h
                 //popup.show(tag);
         });
 
-        dropDownRefresh.init('.referrals');
+        dropDownRefresh.init('#mid-refresh');
 
 
     }

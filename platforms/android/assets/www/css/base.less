@@ -920,13 +920,15 @@ body{
   }
   .referrals{
     background-color: #50484b;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     transform: translate3d(0px, 0px, 0px);
 
     .v_cont{
       width: 7.5rem;
       height: 6000px;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
 
       .flex_box{
         width: 7.5rem;

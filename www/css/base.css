@@ -824,6 +824,8 @@ body {
 .main-sos .referrals .v_cont {
   width: 7.5rem;
   height: 6000px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
 }
 .main-sos .referrals .v_cont .flex_box {
   width: 7.5rem;
