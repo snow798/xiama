@@ -3,9 +3,15 @@
  * 首页中间 referrals模块
  */
 define(['smoothness'], function(smoothness){
+    function getRef_data(){
+        util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1439255024287&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=4&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Ace%3Aff%3A60&proxy=0&api_sig=a212dfe537e5f36807f14b0e701d7734&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
+            bus_play.put('$ref_dataed', JSON.parse(data));
+            Loaded= false;
+        });
+    }
     var initref= function(){
         //水平滑动
-        smoothness.init('.sos-show', 1);
+        smoothness.init('.sos-show', 0);
         var flex_container= document.querySelector('.referrals');
         var flex_cont= document.querySelector('#ref_content');
         var flex_container_height= flex_container.offsetHeight;
@@ -22,12 +28,7 @@ define(['smoothness'], function(smoothness){
             }
         }, false);
 
-        function getRef_data(){
-            util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1439255024287&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=4&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Ace%3Aff%3A60&proxy=0&api_sig=a212dfe537e5f36807f14b0e701d7734&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
-                bus_play.put('$ref_dataed', JSON.parse(data));
-                Loaded= false;
-            });
-        }
+
 
 
         bus_play.subscribe('$ref_dataed', function(ev, data){
@@ -298,6 +299,7 @@ define(['smoothness'], function(smoothness){
     };
 
     return {
-        initref: initref
+        initref: initref,
+        getRef_data: getRef_data
     }
 });

@@ -49,10 +49,17 @@
 }();
 
 
+// 等待加载PhoneGap
+document.addEventListener("deviceready", onDeviceReady, false);
 
-function JsonCallback(data){
-    console.log(data)
+// PhoneGap加载完成
+function onDeviceReady() {
+    console.log('432'+device);
+
+
+
 }
+
 
 var app = {
     // Application Constructor
@@ -83,7 +90,11 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+
     }
 };
 
 app.initialize();
+
+

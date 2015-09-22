@@ -18,7 +18,7 @@ require.config({
     }
 });
 
-define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/hammer.min', 'playData', 'play', 'referrals', 'popup', 'dropDownRefresh'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh) {
+define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/hammer.min', 'playData', 'play', 'referrals', 'popup', 'dropDownRefresh', 'shortDownRefresh'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh) {
         util= util.init;
         Popup= Popup.init;
         //console.log(util, t, playData, play, referrals);
@@ -110,9 +110,23 @@ define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/h
                 //popup.show(tag);
         });
 
-        dropDownRefresh.init('#mid-refresh');
+        dropDownRefresh.init('#mid-refresh',{
+            scrollEnd: referrals.getRef_data
+        });
+
+        shortDownRefresh.init('.myMusic');
+
+        var ct = navigator.connection.type;
+        console.log(ct);
+        alert(ct);
 
 
+
+
+        var test= document.querySelector('.localMusic');
+        test.addEventListener('click', function(){
+            var ref = window.open('http://www.baidu.com', '_blank', 'location=yes');
+        }, false)
     }
 );
 

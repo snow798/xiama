@@ -3,6 +3,7 @@
  * 下拉刷新
  */
 define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
+    util= util.init;
     var config= {
         isAnimate: true,
         animateContentStyle: false,
@@ -11,6 +12,10 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
         currentOff: 0,
         scrollObj: '.referrals',
         currentSite: 0,
+        contentEle: 0,             //内容元素
+        contentHeight: 1,          //内容高度
+        bufferCoefficient: 0.3,    //缓冲系数
+        isScrollLoad: false,       //是否在加载
         status: 0
     };
     config.currentSite= config.topOffset;   //起始位置
@@ -29,6 +34,8 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
             config= util.extend(config, param);
         }
         config.obj= document.querySelector(obj);
+        config.contentEle= config.obj.children[0];
+        config.contentHeight= config.contentEle.offsetHeight;
         if(config.isAnimate){
             var topAm= document.createElement('div');
             if(!config.animateContentStyle) defaultStyle(topAm);
@@ -43,15 +50,19 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
             config.status= 1;
         };
         var downRefresh= function(ev){
-            /*var currentY= ev.changedPointers[0].clientY;
-            config.currentOff= currentY - config.startOff;
-            var t= (1-config.currentOff/parentsH);
-            var endOff= config.currentOff*t;*/
             var currentY= ev.deltaY;
-            currentY= parentsH*(currentY/parentsH*0.3);
-
+            currentY= parentsH*(currentY/parentsH*config.bufferCoefficient);
             config.obj.style['-webkit-transform']= 'translate3d(0px, '+currentY+'px, 0px)';
             config.status= 0;
+        };
+        var scrollLoad= function(){
+            config.contentHeight= config.contentEle.offsetHeight;
+            if(Math.abs(config.currentSite-120)>= parseInt(config.contentHeight) && !config.isScrollLoad){
+                if(config.scrollEnd){
+                    config.scrollEnd();
+                    config.isScrollLoad= true;    //滑动过程中只触发一次请求
+                }
+            }
         };
         var touch= Hammer(config.obj);
         touch.get('pan').set({ direction: Hammer.DIRECTION_ALL });
@@ -68,6 +79,9 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
         });
         touch.on('panup', function(ev){
             touchSlide(ev);
+            scrollLoad();
+            //config.contentHeight= config.contentEle.offsetTop;
+            //console.log(config.contentHeight, config.contentEle.offsetTop);
         });
         touch.on('panend', function(ev){
             if(!config.status){
@@ -81,6 +95,8 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
                 config.obj.style['-webkit-transition']= '0.75s cubic-bezier(0.333333, 0.666667, 0.666667, 1) 0s';
                 config.obj.style['-webkit-transform']= 'translate3d(0px, '+config.currentSite+'px, 0px)';
             }
+            scrollLoad();
+            config.isScrollLoad= false;
         });
     };
     return {

@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/www/css/base.less" line="702" />
-    <bookmark url="file://$PROJECT_DIR$/www/css/base.less" line="1114" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="f8f46cad-1e45-4a1d-b382-9c5d3ec5be85" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/shortDownRefresh.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/android.json" afterPath="$PROJECT_DIR$/plugins/android.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/base.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/base.css" afterPath="$PROJECT_DIR$/www/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/base.less" afterPath="$PROJECT_DIR$/www/css/base.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" afterPath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/dropDownRefresh.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/dropDownRefresh.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/dropDownRefresh.js" afterPath="$PROJECT_DIR$/www/js/dropDownRefresh.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/index.js" afterPath="$PROJECT_DIR$/www/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/main.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/main.js" afterPath="$PROJECT_DIR$/www/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/referrals.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/referrals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/referrals.js" afterPath="$PROJECT_DIR$/www/js/referrals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/values/strings.xml" afterPath="$PROJECT_DIR$/platforms/android/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xiama.iws" />
@@ -44,8 +55,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="4060">
-              <caret line="200" column="65" selection-start-line="200" selection-start-column="65" selection-end-line="200" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="760" max-vertical-offset="5480">
+              <caret line="131" column="58" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -53,12 +64,10 @@
                 <element signature="n#style#0;n#circle#0;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#circle#1;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#circle#2;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -82,8 +91,8 @@
       <file leaf-file-name="smoothness.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/smoothness.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1620">
-              <caret line="36" column="71" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="1620">
+              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -92,38 +101,32 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2049" max-vertical-offset="2520">
-              <caret line="112" column="45" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="2840">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="referrals.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/referrals.js">
+      <file leaf-file-name="cordova.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/cordova.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1860" max-vertical-offset="6160">
-              <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4540" max-vertical-offset="39700">
+              <caret line="227" column="21" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
               <folding>
-                <marker date="1440378341265" expanded="true" signature="4706:4728" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="5764:5786" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="8481:8502" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="9672:9694" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="10824:10845" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="12005:12027" placeholder="..." />
-                <marker date="1440378341265" expanded="true" signature="13101:13122" placeholder="..." />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="playData.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/playData.js">
+      <file leaf-file-name="shortDownRefresh.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/shortDownRefresh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="640">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1460">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
               <folding>
-                <element signature="e#1070#3769#0" expanded="false" />
+                <element signature="e#0#49#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,8 +135,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="804" max-vertical-offset="1880">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1960">
+              <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -141,49 +144,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/css/base.less">
+      <file leaf-file-name="er6yy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/er6yy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.461538" vertical-offset="10190" max-vertical-offset="27680">
-              <caret line="930" column="43" selection-start-line="930" selection-start-column="43" selection-end-line="930" selection-end-column="43" />
-              <folding>
-                <element signature="e#5259#5999#0" expanded="false" />
-                <element signature="e#6076#8483#0" expanded="false" />
-                <element signature="e#13033#13429#0" expanded="false" />
-                <element signature="e#13444#13703#0" expanded="false" />
-                <element signature="e#14174#20536#0" expanded="false" />
-                <element signature="e#14407#16567#0" expanded="false" />
-                <element signature="e#16580#17326#0" expanded="false" />
-                <element signature="e#17787#18163#0" expanded="false" />
-                <element signature="e#22434#23823#0" expanded="false" />
-                <element signature="e#23841#25583#0" expanded="false" />
-                <element signature="e#38325#39670#0" expanded="false" />
-                <element signature="e#39783#41198#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dropDownRefresh.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/dropDownRefresh.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5027933" vertical-offset="600" max-vertical-offset="1800">
-              <caret line="48" column="83" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="300">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/play.js">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="8260">
-              <caret line="4" column="58" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="58" />
-              <folding>
-                <marker date="1440123025298" expanded="true" signature="1846:1854" placeholder="..." />
-                <marker date="1440123025298" expanded="true" signature="2377:2385" placeholder="..." />
-                <marker date="1440123025298" expanded="true" signature="2982:2991" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="740">
+              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/css/base.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6956522" vertical-offset="14560" max-vertical-offset="40380">
+              <caret line="747" column="16" selection-start-line="747" selection-start-column="16" selection-end-line="747" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dropDownRefresh.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/dropDownRefresh.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1484" max-vertical-offset="2200">
+              <caret line="89" column="53" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,7 +198,6 @@
         <option value="$USER_HOME$/Desktop/淘宝网触屏版.html" />
         <option value="$PROJECT_DIR$/platforms/android/project.properties" />
         <option value="$PROJECT_DIR$/www/lib/jiema.js" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/platforms/android/settings.gradle" />
         <option value="D:/TFS/website2.0/ChangTouNew/static/default/dev/home/main.js" />
         <option value="$PROJECT_DIR$/platforms/android/assets/www/css/base.less" />
@@ -211,13 +206,17 @@
         <option value="$PROJECT_DIR$/www/js/play.js" />
         <option value="$PROJECT_DIR$/www/js/smoothness.js" />
         <option value="$PROJECT_DIR$/www/js/util/util.js" />
-        <option value="$PROJECT_DIR$/www/js/index.js" />
-        <option value="$PROJECT_DIR$/www/js/referrals.js" />
         <option value="$PROJECT_DIR$/www/js/popup.js" />
+        <option value="$PROJECT_DIR$/www/js/dropDownRefresh.js" />
+        <option value="$PROJECT_DIR$/www/js/referrals.js" />
+        <option value="$PROJECT_DIR$/www/js/shortDownRefresh.js" />
+        <option value="D:/TFS/website2.0/ChangTouNew/topic/mobile/zamaContestEnd/w/CWWGSQF/css/70c-3.9.0.min.css" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/www/js/index.js" />
+        <option value="$PROJECT_DIR$/www/er6yy.html" />
         <option value="$PROJECT_DIR$/www/js/main.js" />
         <option value="$PROJECT_DIR$/www/css/base.less" />
-        <option value="$PROJECT_DIR$/www/js/dropDownRefresh.js" />
       </list>
     </option>
   </component>
@@ -272,6 +271,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,49 +304,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xiama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xiama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xiama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xiama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,7 +314,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/work/zama-x" />
     <property name="options.lastSelected" value="editor.preferences.smartKeys" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -379,6 +338,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="940" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="LayoutCode.rearrangeEntriesJavaScript 1.5" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RunManager" selected="Node.js.main.js">
     <configuration default="false" name="main.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="main.js" working-dir="$PROJECT_DIR$/www/js">
@@ -499,7 +459,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -515,11 +475,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -575,63 +535,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="500" max-vertical-offset="1120">
-          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="640">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="680">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#svg#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#circle#0;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#circle#1;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#circle#2;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/anmina.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="500">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="1000">
@@ -644,20 +547,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2760">
           <caret line="122" column="10" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
-          <folding>
-            <element signature="e#5259#5999#0" expanded="false" />
-            <element signature="e#6076#8483#0" expanded="false" />
-            <element signature="e#13033#13429#0" expanded="false" />
-            <element signature="e#13444#13703#0" expanded="false" />
-            <element signature="e#14174#20536#0" expanded="false" />
-            <element signature="e#14407#16567#0" expanded="false" />
-            <element signature="e#16580#17326#0" expanded="false" />
-            <element signature="e#17787#18163#0" expanded="false" />
-            <element signature="e#22434#23823#0" expanded="false" />
-            <element signature="e#23841#25583#0" expanded="false" />
-            <element signature="e#38325#39670#0" expanded="false" />
-            <element signature="e#39783#41198#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36312848" vertical-offset="0" max-vertical-offset="716">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-whitelist/whitelist.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53072625" vertical-offset="0" max-vertical-offset="716">
@@ -899,16 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="804" max-vertical-offset="1880">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1396648" vertical-offset="0" max-vertical-offset="2200">
@@ -916,25 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/playData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#1070#3769#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/play.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8620">
           <caret line="4" column="58" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="58" />
-          <folding>
-            <marker date="1440123025298" expanded="true" signature="1846:1854" placeholder="..." />
-            <marker date="1440123025298" expanded="true" signature="2377:2385" placeholder="..." />
-            <marker date="1440123025298" expanded="true" signature="2982:2991" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,26 +803,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/playData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16759777" vertical-offset="0" max-vertical-offset="716">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/referrals.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1620" max-vertical-offset="6600">
-          <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.41899443" vertical-offset="0" max-vertical-offset="1580">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/dropDownRefresh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1484" max-vertical-offset="2200">
+          <caret line="89" column="53" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/shortDownRefresh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1460">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
           <folding>
-            <marker date="1440378341265" expanded="true" signature="4706:4728" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="5764:5786" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="8481:8502" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="9672:9694" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="10824:10845" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="12005:12027" placeholder="..." />
-            <marker date="1440378341265" expanded="true" signature="13101:13122" placeholder="..." />
+            <element signature="e#0#49#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/cordova.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4080" max-vertical-offset="39800">
+          <caret line="227" column="21" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/TFS/website2.0/ChangTouNew/topic/mobile/zamaContestEnd/w/CWWGSQF/css/70c-3.9.0.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5865922" vertical-offset="62840" max-vertical-offset="66760">
+          <caret line="3162" column="1" selection-start-line="3162" selection-start-column="1" selection-end-line="3162" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="4060">
-          <caret line="200" column="65" selection-start-line="200" selection-start-column="65" selection-end-line="200" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="760" max-vertical-offset="5480">
+          <caret line="131" column="58" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -972,12 +863,10 @@
             <element signature="n#style#0;n#circle#0;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#circle#1;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#circle#2;n#symbol#13;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -997,47 +886,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="740">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1960">
+          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/er6yy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="300">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/smoothness.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1620">
-          <caret line="36" column="71" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="1620">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="2840">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/base.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.461538" vertical-offset="10190" max-vertical-offset="27680">
-          <caret line="930" column="43" selection-start-line="930" selection-start-column="43" selection-end-line="930" selection-end-column="43" />
-          <folding>
-            <element signature="e#5259#5999#0" expanded="false" />
-            <element signature="e#6076#8483#0" expanded="false" />
-            <element signature="e#13033#13429#0" expanded="false" />
-            <element signature="e#13444#13703#0" expanded="false" />
-            <element signature="e#14174#20536#0" expanded="false" />
-            <element signature="e#14407#16567#0" expanded="false" />
-            <element signature="e#16580#17326#0" expanded="false" />
-            <element signature="e#17787#18163#0" expanded="false" />
-            <element signature="e#22434#23823#0" expanded="false" />
-            <element signature="e#23841#25583#0" expanded="false" />
-            <element signature="e#38325#39670#0" expanded="false" />
-            <element signature="e#39783#41198#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1804" max-vertical-offset="2520">
-          <caret line="112" column="45" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/dropDownRefresh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5027933" vertical-offset="600" max-vertical-offset="1800">
-          <caret line="48" column="83" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.6956522" vertical-offset="14560" max-vertical-offset="40380">
+          <caret line="747" column="16" selection-start-line="747" selection-start-column="16" selection-end-line="747" selection-end-column="16" />
           <folding />
         </state>
       </provider>
