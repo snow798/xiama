@@ -56,7 +56,7 @@
 
 // 播放及数据
 !function(){
-    var proxyUrl= 'http://192.168.1.4:1991';  //本地代理地址
+    var proxyUrl= 'http://192.168.61.100:1991';  //本地代理地址
     var dsrj= proxyUrl+'/web?v=2.0&app_key=1&page=1&limit=30&_ksTS=1438219275495_46&callback=jsonp47&r=song/new';
 
     util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438235493143&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=rank.music-detail&type=newmusic_all&time=&proxy=0&api_sig=8093269b5591a2c02031bc7c2c970bf4&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
@@ -479,6 +479,7 @@
         //min暂停/播放
         min_play_ev.on('tap', function(){
             bus_play.put('$play', false);
+
         });
 
         //max暂停/播放

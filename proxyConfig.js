@@ -2,7 +2,7 @@
 module.exports = {
 	remote: 'http://api.xiami.com/',
 	local: {
-		prefix: '/web',
+		prefix: '/',
 		root: './',
 		index: '/index.html',
         no404:true
