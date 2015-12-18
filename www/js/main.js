@@ -116,17 +116,7 @@ define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/h
 
         shortDownRefresh.init('.myMusic');
 
-        var ct = navigator.connection.type;
-        console.log(ct);
-        alert(ct);
 
-
-
-
-        var test= document.querySelector('.localMusic');
-        test.addEventListener('click', function(){
-            var ref = window.open('http://www.baidu.com', '_blank', 'location=yes');
-        }, false)
 
     }
 );

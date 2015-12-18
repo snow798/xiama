@@ -9,18 +9,30 @@ define(["./util/util"], function(util){
     var proxyUrl= 'http://172.16.7.100:1991';  //本地代理地址
     var dsrj= proxyUrl+'/web?v=2.0&app_key=1&page=1&limit=30&_ksTS=1438219275495_46&callback=jsonp47&r=song/new';
 
-    util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438235493143&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=rank.music-detail&type=newmusic_all&time=&proxy=0&api_sig=8093269b5591a2c02031bc7c2c970bf4&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
+    util.ajax(GLOBAL_URL, function(data){
         app.musicList.newMusicList= JSON.parse(data);
         app.musicList.newMusicList.$$location= 0;
         app.currentMusic.nowID= app.musicList.newMusicList.data.songs[0].song_id;
         app.currentMusic.listName= 'newMusicList';
         bus_play.put('$musicLoaded' );
+    }, {
+        type: 'POST',
+        data: {
+            url: 'http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438235493143&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=rank.music-detail&type=newmusic_all&time=&proxy=0&api_sig=8093269b5591a2c02031bc7c2c970bf4&access_token=9b80ccb16761a524603f6ec4ad37f5ac'
+        }
     });
 
     var song= window.song= {
         _getSongInfo: function(song_id, fn){     //歌曲信息获取
-            var url= proxyUrl+'/web?v=2.0&app_key=1&id='+song_id+'&_ksTS=1438235667562_75&r=song/detail';
-            util.ajax(url, fn, {callback: 'jsonp76'});
+            var url= ' http://api.xiami.com/web?v=2.0&app_key=1&id='+song_id+'&_ksTS=1438235667562_75&r=song/detail';
+            //util.ajax(url, fn, {callback: 'jsonp76'});
+
+            util.ajax(GLOBAL_URL, fn, {
+                type: 'POST',
+                data: {
+                    url: url
+                }
+            });
         },
         _getSongMusic: function(song_id){
 
@@ -39,7 +51,8 @@ define(["./util/util"], function(util){
             var base= this;
             var song_id= app.currentMusic.nextID || app.currentMusic.nowID;
             this._getSongInfo(song_id, function(data){      //调用获取歌曲信息
-                console.log(data);
+                data= JSON.parse(data);
+                console.log(555555555555,data);
                 if(data.state== 0){
                     data= data.data.song;
                     base._playSong(data.listen_file);
