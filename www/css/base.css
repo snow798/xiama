@@ -125,8 +125,13 @@ body {
   overflow: hidden;
   z-index: 100;
   pointer-events: none;
+  -webkit-transition: all 100ms;
   transition: all 100ms;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   /*-webkit-backface-visibility: hidden;*/
   /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
   /*
@@ -144,6 +149,7 @@ body {
   opacity: 1;
   z-index: 105;
   pointer-events: auto;
+  -webkit-transition: all 220ms;
   transition: all 220ms;
 }
 .container .player .playerContent .album_bg {
@@ -167,18 +173,29 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   z-index: 106;
   visibility: hidden;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 91%, from(#40403f), to(transparent));
+  -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
-  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 .container .player .playerContent .player-header .player-back {
   width: 100%;
   height: 100%;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   text-align: left;
 }
 .container .player .playerContent .player-header .player-back .icon-playerHrader-back {
@@ -188,10 +205,16 @@ body {
   margin-left: 20%;
 }
 .container .player .playerContent .player-header .player-Page-tag {
-  flex: 3;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
 }
 .container .player .playerContent .player-header .player-similar {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .container .player .playerContent ul {
   width: 22.5rem;
@@ -200,7 +223,8 @@ body {
   margin: 0;
   overflow: hidden;
   list-style: none;
-  transform: translate3d(-7.5rem, 0, 0);
+  -webkit-transform: translate3d(-7.5rem, 0, 0);
+          transform: translate3d(-7.5rem, 0, 0);
 }
 .container .player .playerContent ul li {
   width: 7.5rem;
@@ -242,15 +266,24 @@ body {
 .container .player .playerContent .lyrics {
   width: 7.5rem;
   height: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: transparent;
 }
 .container .player .playerContent .lyrics .max_cover {
   width: 7.5rem;
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   background-repeat: no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
 }
@@ -269,11 +302,21 @@ body {
   position: absolute;
   left: 0;
   top: 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-love {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   height: 1.5rem;
   text-align: center;
   line-height: 1.5rem;
@@ -284,7 +327,10 @@ body {
   vertical-align: middle;
 }
 .container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-title {
-  flex: 3;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   text-align: center;
   color: #fff;
   font-size: 0.4rem;
@@ -300,7 +346,10 @@ body {
   color: #d4d4d3;
 }
 .container .player .playerContent .lyrics .music_subjoin .max-music-tip .tip-remark {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   position: relative;
   text-align: center;
 }
@@ -331,6 +380,7 @@ body {
   bottom: 0;
   width: 100%;
   background-color: transparent;
+  -webkit-transition: all 80ms ease-out;
   transition: all 80ms ease-out;
   z-index: 110;
   pointer-events: none;
@@ -349,7 +399,8 @@ body {
   left: 0;
   z-index: 110;
   background-color: #fec4aa;
-  transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
 .container .player .minControl .progress .progress_handle {
   position: absolute;
@@ -360,7 +411,8 @@ body {
   z-index: 111;
   background-color: #f60;
   opacity: 0.6;
-  transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
 .container .player .minControl .musicInfo {
   width: 60%;
@@ -377,7 +429,6 @@ body {
   float: left;
   background-color: #71e414;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .container .player .minControl .musicInfo .name {
@@ -423,13 +474,19 @@ body {
   height: 1.34765rem;
   position: absolute;
   top: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 }
 .container .player .maxControl .maxControl_content .div {
   height: inherit;
 }
 .container .player .maxControl .maxControl_content .s_type {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .container .player .maxControl .maxControl_content .s_type .icon-maxPlayer-random {
   width: 0.4rem;
@@ -439,11 +496,24 @@ body {
   color: #fff;
 }
 .container .player .maxControl .maxControl_content .s_btn {
-  flex: 3;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .container .player .maxControl .maxControl_content .s_btn div {
   width: 1.34765rem;
@@ -470,7 +540,10 @@ body {
   color: #fff;
 }
 .container .player .maxControl .maxControl_content .s_more {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .container .player .maxControl .maxControl_content .s_more .icon-maxPlayer-more {
   width: 0.4rem;
@@ -530,8 +603,15 @@ body {
   width: 100%;
   height: 1rem;
   background-color: #eee;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   border-bottom: 1px solid #888888;
 }
 .main-sos .sos-head-userPhoto {
@@ -547,7 +627,6 @@ body {
   margin: 0 auto;
   margin-top: 0.12rem;
   background-image: url(../img/usr100.gif);
-  -webkit-background-size: contain;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -555,9 +634,19 @@ body {
   height: 1rem;
   line-height: 1rem;
   list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -565,7 +654,10 @@ body {
   font-weight: 600;
 }
 .main-sos .sos-mid-tip li {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .main-sos .sos-search {
   height: 1rem;
@@ -612,17 +704,22 @@ body {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   background: linear-gradient(left, #c3989c, #efc8b7 38%, #f3cdbd 59%, #c87073 100%);
-  background: -o-linear-gradient(left, #c3989c, #efc8b7 38%, #f3cdbd 59%, #c87073 100%);
-  background: -ms-linear-gradient(left, #c3989c, #efc8b7 38%, #f3cdbd 59%, #c87073 100%);
-  background: -moz-linear-gradient(left, #c3989c, #efc8b7 38%, #f3cdbd 59%, #c87073 100%);
   background: -webkit-linear-gradient(left, #c3989c, #efc8b7 38%, #f3cdbd 59%, #c87073 100%);
 }
 .main-sos .myMusic .localMusic .info {
   height: 0.88rem;
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
 }
 .main-sos .myMusic .localMusic .info .l_title {
   height: 0.45rem;
@@ -652,7 +749,6 @@ body {
   float: left;
   background-repeat: no-repeat;
   background-image: url(../img/detail_icon_offline_download.png);
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .myMusic .localMusic .play_btn {
@@ -661,18 +757,25 @@ body {
   height: 0.88rem;
   background-image: url(../img/detail_btn_play_normal.png);
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .myMusic .loc_fun {
   width: 7.5rem;
   height: 1.66rem;
   background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
 }
 .main-sos .myMusic .loc_fun div {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   text-align: center;
 }
 .main-sos .myMusic .loc_fun div .tag {
@@ -682,7 +785,6 @@ body {
   margin-top: 0.34rem;
   background-color: transparent;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .myMusic .loc_fun div .txt {
@@ -721,7 +823,6 @@ body {
   display: inline-block;
   background-image: url(../img/detail_icon_into.png);
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   margin-right: 0.3rem;
   font-size: 0.4rem;
@@ -743,8 +844,13 @@ body {
 .main-sos .myMusic .loc_mySift .item {
   width: 7.5rem;
   height: 1.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   padding-top: 0.2rem;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
@@ -760,11 +866,13 @@ body {
   background-color: transparent;
   background-repeat: no-repeat;
   background-image: url(../img/detail_icon_gather_default.png);
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .myMusic .loc_mySift .item .title {
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   margin-left: 0.3rem;
 }
 .main-sos .myMusic .loc_mySift .item .title .album_name {
@@ -795,7 +903,6 @@ body {
   vertical-align: middle;
   background-repeat: no-repeat;
   background-image: url(../img/detail_icon_gather_play.png);
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .myMusic .loc_mySift .head .cover {
@@ -818,7 +925,8 @@ body {
   background-color: #50484b;
   overflow-y: hidden;
   overflow-x: hidden;
-  transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+          transform: translate3d(0px, 0px, 0px);
   /*首页banner*/
 }
 .main-sos .referrals .v_cont {
@@ -869,18 +977,25 @@ body {
   height: 1.70rem;
   line-height: 2.8rem;
   background-color: #50484b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   color: #ffffff;
   text-align: center;
 }
 .main-sos .referrals .ref_topLinks .topLinks_item {
   height: 100%;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   font-size: 0.30rem;
   background-repeat: no-repeat;
   background-position: center 20%;
-  -webkit-background-size: 37%;
   background-size: 37%;
 }
 .main-sos .referrals .ref_referrals30 {
@@ -909,11 +1024,19 @@ body {
   height: 1.74rem;
   border-bottom: 1px solid #eeeeee;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
 }
 .main-sos .musicPavilion .pav_topLinks .pav_item .pav_s {
-  flex: 0.5;
+  -webkit-box-flex: 0.5;
+  -webkit-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
   height: 1.74rem;
   position: relative;
 }
@@ -924,7 +1047,6 @@ body {
   top: 0.4rem;
   left: 0.25rem;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .musicPavilion .pav_topLinks .pav_item .pav_s .sub_title {
@@ -974,7 +1096,6 @@ body {
   background-color: transparent;
   float: left;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .main-sos .musicPavilion .pav_tipList li .content {
@@ -1012,7 +1133,6 @@ body {
   display: inline-block;
   vertical-align: sub;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   background-image: url(../img/detail_icon_into.png);
   margin-left: 0.1rem;
@@ -1056,9 +1176,18 @@ body {
 .sq_list .sq_list_cont .item {
   width: 7.5rem;
   height: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   box-sizing: border-box;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1073,7 +1202,6 @@ body {
   border-radius: 100%;
   background-color: transparent;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   background-position: center center;
   padding: 0;
@@ -1081,7 +1209,10 @@ body {
 }
 .sq_list .sq_list_cont .item .song {
   height: 1rem;
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   box-sizing: border-box;
   padding-left: 0.25rem;
   overflow: hidden;
@@ -1151,7 +1282,6 @@ body {
   height: 1.8rem;
   background-color: transparent;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .sq_newMusic .sq_newMusic_cont li .title {
@@ -1179,7 +1309,6 @@ body {
   background-color: #fff;
   margin-top: 0.36rem;
   background-repeat: no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
   color: #fff;
 }
@@ -1248,7 +1377,6 @@ body {
   width: 7.5rem;
   height: 4.76rem;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   background-color: #f60;
 }
@@ -1310,7 +1438,6 @@ body {
   border-radius: 100%;
   background-color: #4B946A;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .sq_rec_song .author {
@@ -1401,7 +1528,6 @@ body {
   margin: 0 auto;
   background-image: url(../img/recommend_icon_colon.png);
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   margin-top: 0.4rem;
 }
@@ -1454,7 +1580,6 @@ body {
   border: 1px solid #888888;
   background-color: #4B946A;
   background-repeat: no-repeat;
-  -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
 }
 .sq_rec_song2 .author {
@@ -1559,7 +1684,6 @@ body {
   margin: 0 auto;
   background-image: url(../img/recommend_icon_colon.png);
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   margin-top: 0.4rem;
 }
@@ -1583,11 +1707,19 @@ body {
   top: 0;
   left: 0;
   z-index: 50;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #fff;
   opacity: 0;
-  transform: translate3d(7.5rem, 0px, 0px) translateZ(0px);
+  -webkit-transform: translate3d(7.5rem, 0px, 0px) translateZ(0px);
+          transform: translate3d(7.5rem, 0px, 0px) translateZ(0px);
 }
 .popup .popup-title {
   width: 7.5rem;
@@ -1601,18 +1733,23 @@ body {
   min-width: 1rem;
   height: 100%;
   background-repeat: no-repeat;
-  -webkit-background-size: 50% 50%;
   background-size: 50% 50%;
   background-position: 10% center;
   background-image: url(../img/detail_btn_whitereturn_select.png);
 }
 .popup .popup-title .popup-title-content {
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   background-color: #372d31;
 }
 .popup .popup-content {
   width: 7.5rem;
-  flex: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -1670,10 +1807,16 @@ body {
 .popup-album .popup-content .po1 .po-std-head .play_btn {
   width: 100%;
   height: 1.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 }
 .popup-album .popup-content .po1 .po-std-head .play_btn .subscribe {
-  flex: 152;
+  -webkit-box-flex: 152;
+  -webkit-flex: 152;
+      -ms-flex: 152;
+          flex: 152;
   height: auto;
   text-align: center;
   font-size: 12px;
@@ -1685,14 +1828,20 @@ body {
   margin: 0.35rem auto 3px;
 }
 .popup-album .popup-content .po1 .po-std-head .play_btn .play_k {
-  flex: 71;
+  -webkit-box-flex: 71;
+  -webkit-flex: 71;
+      -ms-flex: 71;
+          flex: 71;
   height: auto;
 }
 .popup-album .popup-content .po1 .po-std-head .play_btn .play_k img {
   width: 100%;
 }
 .popup-album .popup-content .po1 .po-std-head .play_btn .Leave {
-  flex: 152;
+  -webkit-box-flex: 152;
+  -webkit-flex: 152;
+      -ms-flex: 152;
+          flex: 152;
   height: auto;
   text-align: center;
   font-size: 12px;
@@ -1735,7 +1884,6 @@ body {
   vertical-align: middle;
   display: inline-block;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   background-image: url(../img/detail_btn_download_normal.png);
 }
@@ -1751,7 +1899,6 @@ body {
   vertical-align: middle;
   display: inline-block;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
   background-size: contain;
   background-image: url(../img/detail_btn_more_normal.png);
 }
@@ -1764,6 +1911,9 @@ body {
 .po1-item {
   width: 100%;
   height: 1.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 }
 .po1-item .cover {
@@ -1780,7 +1930,10 @@ body {
   margin: 0.3rem 0 0 0.2rem;
 }
 .po1-item .title {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   height: 1.4rem;
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
@@ -1815,7 +1968,6 @@ body {
   height: 0.1rem;
   background-repeat: no-repeat;
   background-image: url(../img/global_icon_more_normal.png);
-  -webkit-background-size: contain;
   background-size: contain;
 }
 .xs_xiala_container {
