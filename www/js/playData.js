@@ -3,7 +3,7 @@
  * 播放及数据
  */
 
-define(["./util/util"], function(util){
+define(["js/util/util"], function(util){
     util= util.init;
     var initData= function(){
     var proxyUrl= 'http://172.16.7.100:1991';  //本地代理地址

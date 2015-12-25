@@ -73,7 +73,7 @@ function animationRecycle(ev, offW, startW, parentsW){
 
 
 
-define(['../../lib/hammer.min'], function(Hammer){
+define(['lib/hammer.min'], function(Hammer){
 
     util={
         addClass: addClass,

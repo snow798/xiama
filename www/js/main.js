@@ -2,8 +2,11 @@
  * Created by Administrator on 2015/7/3.
  */
 require.config({
+    baseUrl: '/www',
     paths: {
-
+        js: "js/",
+        lib: "lib/",
+        xscroll: 'lib/XScroll/cmd/'
     },
     shim: {
        'EventBus': {
@@ -17,8 +20,19 @@ require.config({
         }
     }
 });
+requirejs.onError = function (err) {
+    console.log(err.requireType);
+    if (err.requireType === 'timeout') {
+        console.log('modules: ' + err.requireModules);
+    }
+    throw err;
+}
 
-define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/hammer.min', 'playData', 'play', 'referrals', 'popup', 'dropDownRefresh', 'shortDownRefresh'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh) {
+/*define(function(require, exports, module){
+    var t= require('xscroll/xscroll');
+})*/
+
+define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.min','lib/hammer.min', 'js/playData', 'js/play', 'js/referrals', 'js/popup', 'js/dropDownRefresh', 'js/shortDownRefresh'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh) {
         util= util.init;
         Popup= Popup.init;
         //console.log(util, t, playData, play, referrals);
@@ -72,7 +86,7 @@ define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/h
         var bus_play= window.bus_play= bus.branch('$play');   //用于播放信息传递
         playData.initData();
         play.initPlay();
-        referrals.initref();
+        referrals.init();
 //弹出层
         var popup= new Popup('#popup-main', '.main-sos');
         var popup_album= new Popup('#popup-album', '.main-sos');
@@ -110,9 +124,10 @@ define(["./util/util",'../lib/EventBus','../lib/idangerous.swiper.min','../lib/h
                 //popup.show(tag);
         });
 
-        dropDownRefresh.init('#mid-refresh',{
+/*dropDownRefresh.init('#mid-refresh',{
             scrollEnd: referrals.getRef_data
-        });
+        });*/
+
 
         shortDownRefresh.init('.myMusic');
 

@@ -2,7 +2,7 @@
  * Created by Administrator on 2015/8/20.
  * 播放器
  */
-define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
+define(["js/util/util", 'lib/hammer.min'], function(util, Hammer){
     util= util.init;
     var initPlay= function(){
     var inited= false;
@@ -147,7 +147,7 @@ define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
             var album_loago= app.musicList[app.currentMusic.listName].data.songs[site].album_logo;
             album_loago= album_loago.replace(/_115w_115h/i, "_768w_768h");
             var buffer_img= new Image();
-            buffer_img.src= album_loago+ '.jpg';
+            buffer_img.src= album_loago+ EXTEND;
             buffer_img.addEventListener('load', function(e){
                 base.maxCover_el.style.backgroundImage= 'url('+this.src+')';
                 album_bg.style.backgroundImage= 'url('+this.src+')';

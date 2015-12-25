@@ -2,7 +2,7 @@
  * Created by Administrator on 2015/8/26.
  * 下拉刷新
  */
-define(["./util/util", '../lib/hammer.min'], function(util, Hammer){
+define(["js/util/util", 'lib/hammer.min'], function(util, Hammer){
     util= util.init;
     var config= {
         isAnimate: true,

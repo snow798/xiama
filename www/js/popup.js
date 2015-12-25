@@ -3,7 +3,7 @@
  * 弹出层
  */
 
-define(['../lib/hammer.min'], function(Hammer){
+define(['lib/hammer.min'], function(Hammer){
     function Popup(obj, follow){
         if(typeof obj !== 'string') return false;
         //if(!window['Hammer']){console.log('no Hammer plus!'); return false;}

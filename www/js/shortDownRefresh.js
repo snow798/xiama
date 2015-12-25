@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2015/9/11.
  */
-define(['../lib/hammer.min'], function(Hammer){
+define(['lib/hammer.min'], function(Hammer){
     var init= function(touchObj){
         if(typeof touchObj !== 'string') return false;
             var parentsH= document.documentElement.clientHeight;
