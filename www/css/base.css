@@ -823,7 +823,7 @@ body {
 }
 .main-sos .referrals .v_cont {
   width: 7.5rem;
-  height: 6000px;
+  height: auto;
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
 }
@@ -1817,4 +1817,15 @@ body {
   background-image: url(../img/global_icon_more_normal.png);
   -webkit-background-size: contain;
   background-size: contain;
+}
+.xs_xiala_container {
+  top: -50px !important;
+  bottom: 0 !important;
+  text-align: center;
+  color: #ffffff;
+}
+.sx_updata_container {
+  text-align: center;
+  color: #ffffff;
+  bottom: -55px !important;
 }

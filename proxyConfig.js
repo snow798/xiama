@@ -1,11 +1,13 @@
 'use strict';
 module.exports = {
-	remote: 'http://api.xiami.com/',
+	remote: 'http://2015.kookw.sinaapp.com/',
 	local: {
-		prefix: '/web',
+		prefix: '/',
 		root: './',
 		index: '/index.html',
         no404:true
 	},
-	port: 1991
+	port: 1999
 };
+
+// http://api.xiami.com/

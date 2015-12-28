@@ -2,34 +2,60 @@
  * Created by Administrator on 2015/8/20.
  * 首页中间 referrals模块
  */
-define(['smoothness'], function(smoothness){
+define(function(require, exports, module){
+    var smoothness= require('js/smoothness');
+    var XScroll= require('xscroll/xscroll');
+    XScroll.Plugins.PullDown= require('xscroll/plugins/pullDown');
+    //XScroll.Plugins.Infinite= require('xscroll/plugins/infinite');
+    XScroll.Plugins.PullUp= require('xscroll/plugins/pullUp');
+    var xscroll = new XScroll({
+        renderTo: "#J_Scroll",
+        lockY:false
+    });
+    //下啦刷新
+    var pulldown = new XScroll.Plugins.PullDown({
+     autoRefresh:false,
+     clsPrefix: 'xs_xiala_'
+     });
+     pulldown.on("loading",function(e){
+            console.log('刷新')
+         pulldown.reset();
+     });
+    xscroll.plug(pulldown);
+    pulldown.pluginInitializer(xscroll);
+    pulldown.render();
+    //上啦加载
+    var pullup = new XScroll.Plugins.PullUp({
+        upContent:"pull up to load more ...",
+        downContent:"release to load ...",
+        loadingContent:"loading ...",
+        bufferHeight:0,
+        height: 50,
+        clsPrefix: 'sx_updata_'
+    });
+    pullup.on("loading",function(){
+        getRef_data();
+        console.log('loading-- lalalalalalalal');
+    });
+    xscroll.plug(pullup);
+    pullup.pluginInitializer(xscroll);
+
+    //累计加载
     function getRef_data(){
-        util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1439255024287&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=4&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Ace%3Aff%3A60&proxy=0&api_sig=a212dfe537e5f36807f14b0e701d7734&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
+        util.ajax(GLOBAL_URL, function(data){
             bus_play.put('$ref_dataed', JSON.parse(data));
             Loaded= false;
-        });
+        }, {
+                type: 'POST',
+                data: {
+                    url: 'http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1439255024287&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=4&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Ace%3Aff%3A60&proxy=0&api_sig=a212dfe537e5f36807f14b0e701d7734&access_token=9b80ccb16761a524603f6ec4ad37f5ac'
+                }
+            }
+        );
     }
     var initref= function(){
         //水平滑动
-        smoothness.init('.sos-show', 0);
-        var flex_container= document.querySelector('.referrals');
-        var flex_cont= document.querySelector('#ref_content');
-        var flex_container_height= flex_container.offsetHeight;
-        var flex_cont_height= flex_cont.offsetHeight;
-        var Loaded= false;
-        flex_container.addEventListener('scroll', function(ev){
-            var offset= this.scrollTop;
-            flex_cont_height= flex_cont.offsetHeight;
-            if(offset+ flex_container_height+10 >= flex_cont_height){
-                if(!Loaded){
-                    Loaded= true;
-                    getRef_data();
-                }
-            }
-        }, false);
-
-
-
+        smoothness.init('.sos-show', 1);
 
         bus_play.subscribe('$ref_dataed', function(ev, data){
             console.log(77777, data);
@@ -42,7 +68,7 @@ define(['smoothness'], function(smoothness){
                     ref_banner.className= 'ref_banner';
                     html += '<div class="swiper-container"><div class="swiper-wrapper">';
                     for(var s in data.banner){
-                        html += '<div class="swiper-slide" > <img src="'+data.banner[s].logo+'" data-title="'+data.banner[s].title+'" data-href="'+data.banner[s].url+'"> </div>';
+                        html += '<div class="swiper-slide" > <img src="'+data.banner[s].logo+EXTEND+'" data-title="'+data.banner[s].title+'" data-href="'+data.banner[s].url+'"> </div>';
                     }
                     html += '</div></div><div class="pagination"></div>';
                     ref_banner.innerHTML= html;
@@ -74,7 +100,7 @@ define(['smoothness'], function(smoothness){
                     radios.className= 'ref_topLinks';
                     for(var s in data.radios){
                         var sel= data.radios[s];
-                        html += '<div data-href="'+sel.url+'" class="topLinks_item" style="background-image: url('+sel.logo+');">'+sel.title+'</div>';
+                        html += '<div data-href="'+sel.url+'" class="topLinks_item" style="background-image: url('+sel.logo+EXTEND+');">'+sel.title+'</div>';
                     }
                     radios.innerHTML= html;
                     ref_cont.appendChild(radios);
@@ -90,7 +116,7 @@ define(['smoothness'], function(smoothness){
                     html += '<div class="title" data-popupType="album" data-href="'+data.source_url+'">'+data.title+'</div><ul class="sq_list_cont">';
                     for(var s in data.songs){
                         var sel= data.songs[s];
-                        html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
+                        html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+EXTEND+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
                     }
                     html += '</ul>';
                     topEle.innerHTML= html;
@@ -107,7 +133,7 @@ define(['smoothness'], function(smoothness){
                     html += '<div class="title">'+data.title+'</div><ul class="sq_list_cont">';
                     for(var s in data.songs){
                         var sel= data.songs[s];
-                        html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
+                        html += '<li class="item"><div class="album"style="background-image: url('+sel.album_logo+EXTEND+');"></div><div class="song"><div class="song_title">'+sel.song_name+'</div><div class="song_author">'+sel.singers+'</div></div><div class="more"><svg class="icon sos-more"><use xlink:href="#sos-more"></use></svg></div></li>';
                     }
                     html += '</ul>';
                     topEle.innerHTML= html;
@@ -270,6 +296,9 @@ define(['smoothness'], function(smoothness){
                 }
             }
 
+            xscroll.render();
+            pullup.render();
+            pullup.complete();
         });
 
 
@@ -278,13 +307,23 @@ define(['smoothness'], function(smoothness){
             console.log('no localStorage')
         }
         function getBannerData(){
-            util.ajax('http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438914458351&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=1&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Acf%3A0a%3A70&proxy=0&api_sig=85d03053806d90e21faa3bc75aaccb5e&access_token=9b80ccb16761a524603f6ec4ad37f5ac', function(data){
-                data= JSON.parse(data);
-                data._time= new Date().getTime();
-                localStorage.setItem('home_one', JSON.stringify(data));
-                bus_play.put('$ref_dataed', data);
-            });
+            util.ajax(GLOBAL_URL, function(data){
+                    data= JSON.parse(data);
+                    data._time= new Date().getTime();
+                    localStorage.setItem('home_one', JSON.stringify(data));
+                    bus_play.put('$ref_dataed', data);
+
+
+                }, {
+                    type: 'POST',
+                    data: {
+                        url: 'http://spark.api.xiami.com/api?api_key=263b63d85992a30cc6030aff03c9dfd0&call_id=1438914458351&av=android_101&v=5.0&app_v=5010100&os_v=19_4.4.2&ch=700145&network=1&device_id=353918056359637&platform_id=1&lg=1&utdid=VY0KxJl2HXADAKUwViVKiJ1A&resolution=1280*768&method=music.start&page=1&device_type=Nexus+4&gps=115.17296503%2C30.96320678&ssid=%22KX-WLAN%22&bssid=1c%3A1d%3A86%3Acf%3A0a%3A70&proxy=0&api_sig=85d03053806d90e21faa3bc75aaccb5e&access_token=9b80ccb16761a524603f6ec4ad37f5ac'
+                    }
+                }
+            );
+
         }
+
         var lo_data= localStorage.getItem('home_one');
         if(!lo_data){   //为空时
             getBannerData();
@@ -298,8 +337,15 @@ define(['smoothness'], function(smoothness){
 
     };
 
+    var init= function(){
+        initref();
+
+        //xscroll.render();
+
+    };
+
     return {
-        initref: initref,
+        init: init,
         getRef_data: getRef_data
     }
 });

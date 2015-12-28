@@ -3,7 +3,7 @@
  * smoothness
  */
 
-define(['../lib/hammer.min'], function(Hammer){
+define(['lib/hammer.min'], function(Hammer){
     //水平滑动分页
     function smoothness(obj,initPage, parentsWidth){
         if(typeof obj !== 'string') return false;

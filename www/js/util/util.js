@@ -73,7 +73,7 @@ function animationRecycle(ev, offW, startW, parentsW){
 
 
 
-define(['../../lib/hammer.min'], function(Hammer){
+define(['lib/hammer.min'], function(Hammer){
 
     util={
         addClass: addClass,
@@ -107,15 +107,12 @@ define(['../../lib/hammer.min'], function(Hammer){
             var isJsonp= false;
             if(typeof url !== "string") return false;
             var config= {
-                type: 'GET'
+                type: 'GET',
+                data: {}
             };
-
-
             if(ops && ops instanceof Object){
                 util.extend(config, ops);
             }
-
-
             if(typeof config.callback == 'string' && config.callback.length>0){
                 isJsonp= true;
                 if(url.indexOf('?')>-1){
@@ -124,26 +121,33 @@ define(['../../lib/hammer.min'], function(Hammer){
                     url += '?callback='+config.callback;
                 }
             }
-
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open(config.type, url);
-
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                     if(fn && fn instanceof Function){
                         if(isJsonp){
                             var data= JSON.parse(xmlHttp.responseText.substring(config.callback.length+1, xmlHttp.responseText.length-1));
-                            console.log(data);
+                            console.log(3333333333333333,data);
                             fn(data);
                         }else{
                             fn(xmlHttp.responseText);
                         }
-
                     }
                 }
             };
 
-            xmlHttp.send(null);
+            var serializeParam = function ( param ) {
+                if ( !param ) return '';
+                var qstr = [];
+                for ( var key in  param ) {
+                    qstr.push( encodeURIComponent(key) + '=' + encodeURIComponent(param[key]) );
+                };
+                return  qstr.join('&');
+            };
+            config.data= serializeParam(config.data);
+            xmlHttp.send(config.data);
         }
     };
     window.util= util;

@@ -48,9 +48,13 @@
 
 }();
 
-
-
-
+// http://2015.kookw.sinaapp.com/demo/xiama/server/
+//
+window.GLOBAL_URL= '/demo/xiama/server/index.php';
+window.EXTEND= '.jpg';
+setInterval(function(){
+    window.scrollTo(0,0);
+},500);
 
 var app = {
     // Application Constructor
