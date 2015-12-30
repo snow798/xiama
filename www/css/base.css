@@ -815,7 +815,7 @@ body {
   color: #b2b2b2;
 }
 .main-sos .referrals {
-  background-color: #50484b;
+  background-color: #edeff1;
   overflow-y: hidden;
   overflow-x: hidden;
   transform: translate3d(0px, 0px, 0px);
@@ -873,6 +873,7 @@ body {
   flex-wrap: nowrap;
   color: #ffffff;
   text-align: center;
+  padding-bottom: .25rem;
 }
 .main-sos .referrals .ref_topLinks .topLinks_item {
   height: 100%;
@@ -1028,7 +1029,6 @@ body {
   width: 7.5rem;
   height: 5.44rem;
   background-color: #fff;
-  margin-top: 0.36rem;
   padding-top: 0.5rem;
 }
 .sq_list .author {
@@ -1822,10 +1822,10 @@ body {
   top: -50px !important;
   bottom: 0 !important;
   text-align: center;
-  color: #ffffff;
+  color: #999999;
 }
 .sx_updata_container {
   text-align: center;
-  color: #ffffff;
-  bottom: -55px !important;
+  color: #999999;
+  bottom: -65px !important;
 }

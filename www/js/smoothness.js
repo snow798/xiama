@@ -26,13 +26,14 @@ define(['lib/hammer.min'], function(Hammer){
         currentObj.style['-webkit-transition-timing-function']= 'ease-out';
 
         currentObj_ev.on('panstart', function(ev){
-
+            //if(ev.target.offsetParent.className == 'swiper-wrapper') return false;
             currentObj.style['-webkit-transition-duration']= '0s';
             base.param.currentMovePage= base.currentPage;
             base.param.initOffset= base.leftOffset;
             base.param.started= 1;
         });
-        currentObj_ev.on('panmove', function(ev){
+        var moveHandle= function(ev){
+            // if(ev.target.offsetParent.className == 'swiper-wrapper') return false;
             if(!(ev.offsetDirection== 2 || ev.offsetDirection == 4)) return false;
             base.param.leftMoveOffset= base.param.initOffset+ ev.deltaX;
             if(base.param.leftMoveOffset>0 || base.param.leftMoveOffset<-parentsW*2){   //是否超出边界
@@ -40,8 +41,15 @@ define(['lib/hammer.min'], function(Hammer){
                 return false;
             }
             currentObj.style['-webkit-transform']= 'translate3d('+base.param.leftMoveOffset+'px,0,0) translateZ(0)';
+        };
+        currentObj_ev.on('panleft', function(ev){
+            moveHandle(ev);
+        });
+        currentObj_ev.on('panright', function(ev){
+            moveHandle(ev);
         });
         currentObj_ev.on('panend', function(ev){
+            //if(ev.target.offsetParent.className == 'swiper-wrapper') return false;
             if(base.param.started== -1){
                 return false;
             }

@@ -32,7 +32,7 @@ requirejs.onError = function (err) {
     var t= require('xscroll/xscroll');
 })*/
 
-define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.min','lib/hammer.min', 'js/playData', 'js/play', 'js/referrals', 'js/popup', 'js/dropDownRefresh', 'js/shortDownRefresh'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh) {
+define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.x','lib/hammer.min', 'js/playData', 'js/play', 'js/referrals', 'js/popup', 'js/dropDownRefresh', 'js/shortDownRefresh','js/smoothness'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh, smoothness) {
         util= util.init;
         Popup= Popup.init;
         //console.log(util, t, playData, play, referrals);
@@ -108,7 +108,8 @@ define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.min','lib/hammer.mi
 
             }
         };
-        glob_ev.on('tap', function(ev){
+        var rulesparse= function(ev){
+            console.log(ev, ev.target)
             var tag= ev.target;
             var popupType= tag.getAttribute('data-popupType');
             var src= tag.getAttribute('data-href');
@@ -120,18 +121,34 @@ define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.min','lib/hammer.mi
             if (src.indexOf('http') == 0) {
                 popup.show(tag, popupHandle.iframe);
             }
-
+        };
+        glob_ev.on('tap', function(ev){
+            rulesparse(ev);
                 //popup.show(tag);
         });
+        //banner 独立处理
+        var bannerItems= document.querySelectorAll('.swiper-slide img');
+        for(var n in bannerItems){
+            if(bannerItems[n].nodeType == 1){
+                bannerItems[n].addEventListener('click', function(ev){
+                    rulesparse(ev);
+                }, false)
+            }
+        }
+
 
 /*dropDownRefresh.init('#mid-refresh',{
             scrollEnd: referrals.getRef_data
         });*/
 
+        //水平滑动
+        smoothness.init('.sos-show', 1);
 
         shortDownRefresh.init('.myMusic');
 
 
+        /*document.querySelector('.swiper-slide img').addEventListener('touchstart', function(){
+        }, false)*/
 
     }
 );

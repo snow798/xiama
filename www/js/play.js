@@ -389,6 +389,11 @@ define(["js/util/util", 'lib/hammer.min'], function(util, Hammer){
         player.musicInfoContent();
         player.musicPlayer();
         console.log(player,app, app.module)
+
+        setTimeout(function(){
+            /*song.nextSong();
+            audio.pause();*/
+        }, 800)
     }
     //执行模块初始化
     document.addEventListener('DOMContentLoaded', function(){
