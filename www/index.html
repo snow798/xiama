@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-size: 50px;" manifest="cache.manifest">
+<html style="font-size: 50px;" manifest="index.appcache">
     <head>
         <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
         <meta charset="utf-8">
@@ -395,7 +395,11 @@
         <script src="lib/prefixfree.min.js"></script>
         <script src="lib/inobounce.min.js"></script>
         <script data-main="js/main.js" src="js/require.js"  defer async="true" ></script>
-
+        <script>
+            window.applicationCache.addEventListener("updateready", function(){
+                window.location.reload()
+            });
+        </script>
         <!--<script src="lib/jiema.js"></script>
         <script src="lib/prefixfree.min.js"></script>
         <script src="lib/cookie.js"></script>

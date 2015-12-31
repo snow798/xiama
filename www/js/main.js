@@ -1,12 +1,13 @@
 /**
  * Created by Administrator on 2015/7/3.
  */
+
 require.config({
     baseUrl: '/www',
     paths: {
-        js: "js/",
-        lib: "lib/",
-        xscroll: 'lib/XScroll/cmd/'
+        js: "js",
+        lib: "lib",
+        xscroll: 'lib/XScroll/cmd'
     },
     shim: {
        'EventBus': {
@@ -25,14 +26,28 @@ requirejs.onError = function (err) {
     if (err.requireType === 'timeout') {
         console.log('modules: ' + err.requireModules);
     }
+    alert(err.toString());
     throw err;
-}
 
+}
+alert(22)
 /*define(function(require, exports, module){
     var t= require('xscroll/xscroll');
 })*/
 
-define(["js/util/util",'lib/EventBus','lib/idangerous.swiper.x','lib/hammer.min', 'js/playData', 'js/play', 'js/referrals', 'js/popup', 'js/dropDownRefresh', 'js/shortDownRefresh','js/smoothness'], function(util, t, f,Hammer,  playData, play, referrals, Popup, dropDownRefresh, shortDownRefresh, smoothness) {
+define(function(require, exports, module) {
+        alert(444444444555);
+        var util= require('js/util/util');
+        var t= require('lib/EventBus');
+        var f= require('lib/idangerous.swiper.x');
+        var Hammer= require('lib/hammer.min');
+        var playData= require('js/playData');
+        var play= require('js/play');
+        var referrals= require('js/referrals');
+        var Popup= require('js/Popup');
+        var dropDownRefresh= require('js/dropDownRefresh');
+        var shortDownRefresh= require('js/shortDownRefresh');
+        var smoothness= require('js/smoothness');
         util= util.init;
         Popup= Popup.init;
         //console.log(util, t, playData, play, referrals);
